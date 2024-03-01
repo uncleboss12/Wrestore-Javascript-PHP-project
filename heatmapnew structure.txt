@@ -1,0 +1,39 @@
+heatmapnew1_g2c.js structure
+
+Function heatinitialize (){
+
+	#oneMapPF, #oneMapRV, #oneMapSR, #oneMapNR --> empty
+	
+	maps = ['oneMapPF','oneMapRV','oneMapSR','oneMapNR'];
+	
+	var ressssPF1, ressssRV1, ressssSR1, ressssNR1
+	
+	Base map for PFR: heatmapPF1
+	Fullscreen button
+	Legend for PFR
+	Polygons to highlight sub-basins in PFR-heatmap
+
+	Base map for RV: heatmapRV1
+	Fullscreen button
+	Legend for RV
+	Polygons to highlight sub-basins in RV-heatmap
+
+	Base map for SR: heatmapSR1
+	Fullscreen button
+	Legend for SR
+	Polygons to highlight sub-basins in SR-heatmap
+
+	Base map for NR: heatmapNR1
+	Fullscreen button
+	Legend for NR
+	Polygons to highlight sub-basins in NR-heatmap
+	
+	
+   
+}
+   
+   
+   
+   
+   
+   
