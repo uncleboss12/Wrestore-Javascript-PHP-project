@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset='utf-8' />
+    <title>Display buildings in 3D</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.48.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.48.0/mapbox-gl.css' rel='stylesheet' />
+    <script src='https://npmcdn.com/@turf/turf/turf.min.js'></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<div id='map'></div>
+<script>
+    // mapboxgl.accessToken = 'pk.eyJ1IjoicXVlMzIxNiIsImEiOiJjaWhxZmMxMDUwMDBzdXhsdWh0ZDkyMzVqIn0.sz3lHuX9erctIPE2ya6eCw';
+    mapboxgl.accessToken = 'pk.eyJ1Ijoibm9heWFyYWUiLCJhIjoiY2oyOGF0cnRkMDBudzMybW1jcG56NzJpayJ9.6fByAW4OwMQFH27KzsWlBQ';
+
+    var map = new mapboxgl.Map({
+        container: 'map',
+        // style: 'mapbox://styles/mapbox/light-v9',
+        style: 'mapbox://styles/mapbox/streets',
+        center: [8.538961, 47.372476],
+        zoom: 16,
+        pitch: 40,
+        hash: true
+    });
+
+    var url = 'http://127.0.0.1:62940/test2.json';
+
+    // mapboxgl.accessToken = 'pk.eyJ1IjoicXVlMzIxNiIsImEiOiJjaWhxZmMxMDUwMDBzdXhsdWh0ZDkyMzVqIn0.sz3lHuX9erctIPE2ya6eCw';
+    mapboxgl.accessToken = 'pk.eyJ1Ijoibm9heWFyYWUiLCJhIjoiY2oyOGF0cnRkMDBudzMybW1jcG56NzJpayJ9.6fByAW4OwMQFH27KzsWlBQ';
+
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/light-v9',
+        // style: 'mapbox://styles/noayarae/streets',
+        center: [8.538961, 47.372476],
+        zoom: 16,
+        pitch: 40,
+        hash: true
+    });
+    // L.mapbox.styleLayer('mapbox://styles/YOUR_USERNAME/YOUR_STYLE_ID').addTo(map);
+
+    map.on('load', function() {
+
+        map.addLayer({
+            'id': 'extrusion1',
+            'type': 'fill-extrusion',
+            "source": {
+                "type": "geojson",
+                "data": {"type": "FeatureCollection","features": []
+                }
+            },
+            'paint': {
+                // 'stroke-color':'#000000',
+                'fill-extrusion-color': '#00f',
+                'fill-extrusion-height': ['get', 'frequency1'],
+                'fill-extrusion-base': 1,
+                'fill-extrusion-opacity': 0.3,
+                // 'extrusion-outline-color': '#000000'
+            }
+        });
+        map.addLayer({
+            'id': 'extrusion2',
+            'type': 'fill-extrusion',
+            "source": {
+                "type": "geojson",
+                "data": {"type": "FeatureCollection","features": []
+                }
+            },
+            'paint': {
+                'fill-extrusion-color': '#00ff00',
+                'fill-extrusion-height': ['get', 'frequency2'],
+                'fill-extrusion-base': 1,
+                'fill-extrusion-opacity': 0.3
+            }
+        });
+
+        map.addLayer({
+            "id": "total",
+            'type': 'circle',
+            'paint': {
+                'circle-radius': {
+                    'base': 2,//1.75,
+                    'stops': [
+                        [12, 2],
+                        [22, 180]
+                    ]
+                },
+                'circle-color': '#ffffff'
+            },
+            "source": {
+                "type": "geojson",
+                "data": {
+                    "type": "FeatureCollection",
+                    "features": [{
+                        "type": "Feature",
+                        "geometry": {
+                            "type": "Point",
+                            "coordinates": [8.538961, 47.372476]
+                        },
+                        "properties": {
+                            "frequency1": 100,
+                            "frequency2": 80
+                        }
+                    },
+                        {
+                            "type": "Feature",
+                            "geometry": {
+                                "type": "Point",
+                                "coordinates": [8.539961, 47.372476]
+                            },
+                            "properties": {
+                                "frequency1": 22,
+                                "frequency2": 12
+                            }
+                        }
+                    ]
+                }
+            }
+        });
+
+
+        map.on('sourcedata', function(e) {
+            if (e.sourceId !== 'total') return;
+            if (e.isSourceLoaded !== true) return;
+
+            var data = {
+                "type": "FeatureCollection",
+                "features": []
+            };
+            e.source.data.features.forEach(function(f) {
+                var object = turf.centerOfMass(f);
+                var center = object.geometry.coordinates;
+                var radius = 5;
+                var options = {
+                    steps: 16,
+                    units: 'meters',
+                    properties: object.properties
+                };
+                data.features.push(turf.circle(center, radius, options))
+            });
+            map.getSource('extrusion1').setData(data);
+            map.getSource('extrusion2').setData(data);
+        })
+    });
+
+
+</script>
+
+</body>
+</html>
