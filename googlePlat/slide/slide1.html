@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        .sliderticks {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 5px 0 5px;
+        }
+
+        .sliderticks p {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            width: 1px;
+            background: #000000;/*#D3D3D3;*/
+            height: 10px;
+            line-height: 40px;
+            margin: 0 0 20px 0;
+        }
+
+    </style>
+</head>
+<body>
+
+<div style="width: 300px">
+    <h2>
+        slide bar
+    </h2>
+    <!--<span id="valBox"></span>-->
+    <!--<input type="range" min="1" max="10" step="1" onchange="showVal(this.value)">-->
+
+    <input type="range" min="1" max="3" step="1" class="slider" style="width: inherit;"
+           oninput="showVal(this.value)" onchange="actionVal(this.value)">
+    <div class="sliderticks">
+        <p>Min</p>
+<!--        <p>2</p>-->
+        <p>Mean</p>
+<!--        <p>4</p>-->
+        <p>Max</p>
+    </div>
+
+
+    <p>Slide value: <span id="valBox"></span></p>
+    <div>Display: <span id="display"></span></div>
+</div>
+
+<script>
+    function showVal(newVal){
+        document.getElementById("valBox").innerHTML=newVal;
+    }
+    function actionVal(newVal){
+        // document.getElementById("action_slide").innerHTML=newVal;
+
+        var x = parseInt(newVal);
+        // alert(typeof newVal);
+        switch (x) {
+            case 1:
+                document.getElementById("display").innerHTML="Map "+newVal;
+                // text = "Off";
+                break;
+            case 2:
+                document.getElementById("display").innerHTML="Map "+newVal;
+                break;
+            case 3:
+                document.getElementById("display").innerHTML="Map "+newVal;
+                break;
+            case 4:
+                document.getElementById("display").innerHTML="Map "+newVal;
+                break;
+            case 5:
+                document.getElementById("display").innerHTML="Map "+newVal;
+                break;
+            default:
+                document.getElementById("display").innerHTML="Map "+"default";
+        }
+
+
+    }
+
+</script>
+
+</body>
+</html>

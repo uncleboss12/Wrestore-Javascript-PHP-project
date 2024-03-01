@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .slidecontainer {
+            width: 100%;
+            padding: 5px 5px 0px 5px;
+            border: 1px solid #0000cc;
+        }
+        .slider {
+            -webkit-appearance: none;
+            width: 97%;
+            height: 5px;
+            background: #e6e6e6;/*#d3d3d3;*/
+            border: 1px solid #666666;
+            outline: none;
+            opacity: 0.7;
+            -webkit-transition: .2s;
+            transition: opacity .2s;
+        }
+        .slider:hover {
+            opacity: 1;
+        }
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 35px;
+            height: 20px;
+            background: #b3b3b3;/*#4CAF50;*/
+            border: 1px solid #000000;
+            border-radius: 2px;
+            cursor: pointer;
+        }
+        .slider::-moz-range-thumb {/*Firefox*/
+            width: 35px;
+            height: 20px;
+            background: #b3b3b3;/*#4CAF50;*/
+            border: 1px solid #000000;
+            border-radius: 2px;
+            cursor: pointer;
+        }
+        .sliderticks {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px 0 20px;
+        }
+        .sliderticks p {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            width: 1px;
+            background: #000000;/*#D3D3D3;*/
+            height: 10px;
+            line-height: 40px;
+            margin: 0 0 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Custom Range Slider</h1>
+
+<div class="slidecontainer" style="width: 200px">
+<!--    <p>Default range slider:</p>-->
+<!--    <input type="range" min="1" max="5" step="1" value="3">-->
+
+    <input id="myRange" class="slider" type="range" min="1" max="3" step="1" value="2"
+           oninput="showVal(this.value)" onchange="actionVal(this.value)">
+
+    <div class="sliderticks">
+        <p>Min</p>
+        <p>Mean</p>
+        <p>Max</p>
+    </div>
+</div>
+
+<p>Slide value: <span id="slide_value"></span></p>
+<div>Display: <span id="slide_display"></span></div>
+
+<script>
+    function showVal(newVal){
+        document.getElementById("slide_value").innerHTML=newVal;
+    }
+    function actionVal(newVal){
+        // document.getElementById("action_slide").innerHTML=newVal;
+
+        var x = parseInt(newVal);
+        // alert(typeof newVal);
+        switch (x) {
+            case 1:
+                document.getElementById("slide_display").innerHTML="Map "+newVal;
+                // text = "Off";
+                break;
+            case 2:
+                document.getElementById("slide_display").innerHTML="Map "+newVal;
+                break;
+            case 3:
+                document.getElementById("slide_display").innerHTML="Map "+newVal;
+                break;
+            default:
+                document.getElementById("slide_display").innerHTML="Map "+"default";
+        }
+    }
+
+</script>
+
+</body>
+</html>
