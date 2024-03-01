@@ -1,0 +1,41 @@
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,hgroup,menu,nav,section,summary,time,mark,audio,video{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 12px;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+#frame2{
+    width: 180px;
+    background: #ffffff;
+    border: 2px solid #8c8c8c;
+    border-radius: 7px;
+    /*padding: 4px;*/
+    font-size: 12px;
+}
+
+.capa_1_h, .capa_2_h, .capa_3_h, .capa_4_h, .capa_5_h, .capa_6_h{
+    padding: 2px 5px 2px 2px;
+    background: #adc2eb;/*#0c97ed;*/
+}
+
+hr {
+    margin: 2px 2px;
+    border-color: #ebf0fa;
+}
+
+.list_items{
+    background: #ebf0fa;/*#80ff00;*/
+}
+.item {
+    margin: 0px 0px 0px 15px;
+    /*background: #9fcdff;*/
+    /*width: 100px;*/
+}
+
+#capa_1_arrow, #capa_2_arrow, #capa_3_arrow, #capa_4_arrow, #capa_5_arrow, #capa_6_arrow {
+    cursor: pointer;
+}
