@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Removing Polylines</title>
+    <style>
+        #map {
+            height: 100%;
+        }
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        #floating-panel {
+
+            position: absolute;
+            top: 10px;
+            left: 25%;
+            z-index: 5;
+            background-color: #fff;
+            padding: 5px;
+            border: 1px solid #999;
+            text-align: center;
+            font-family: 'Roboto','sans-serif';
+            line-height: 30px;
+            padding-left: 10px;
+        }
+    </style>
+</head>
+<body>
+<div id="floating-panel">
+    <select id="mySelect" onchange="select_sb()">
+        <option value="sb0">subbasin 0
+        <option value="sb1">subbasin 1
+        <option value="sb2">subbasin 2
+        <option value="sb3">subbasin 3
+    </select>
+
+</div>
+<div id="map"></div>
+<script>
+    // This example adds a UI control allowing users to remove the polyline from the map.
+
+    var map;
+    function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 8,
+            center: {lat: 40, lng: -83.6},
+            mapTypeId: 'terrain'
+        });
+
+        var sb0 = [
+            {lat: 39.772, lng: -85.214},
+            {lat: 40.291, lng: -85.821},
+            {lat: 40.142, lng: -85.431},
+            {lat: 40.467, lng: -85.027}
+        ];
+        var sb1 = [
+            {lat: 40.372, lng: -85.714},
+            {lat: 39.691, lng: -85.921},
+            {lat: 39.642, lng: -85.531},
+            {lat: 39.967, lng: -85.727}
+        ];
+        var sb2 = [
+            {lat: 40.372, lng: -85.214},
+            {lat: 39.691, lng: -86.121},
+            {lat: 39.642, lng: -84.531},
+            {lat: 39.967, lng: -84.027}
+        ];
+        var ssbb = [sb0, sb1, sb2];
+
+        var i;
+//        var poly_sb = [];
+
+        poly_assign(ssbb);
+        add_sb0();
+    }
+
+
+    //E: This function activates the Subbasin 0, by default
+    function add_sb0() {
+        for (i=0; i<3;i++){
+            var sb_null = eval("poly_sb"+i);//E: convert a string into a variable name
+            sb_null.setMap(null);
+        }
+        poly_sb0.setMap(map);
+    }
+
+
+    function select_sb(){
+        var strv = String(mySelect.value);
+        numb = strv.match(/\d/g);//E: Get the number part of the string for ex. "subbasin 1", get 1
+        for (i=0; i<3;i++){
+            var sb_null = eval("poly_sb"+i);//E: convert a string into a variable name
+            sb_null.setMap(null);//E: turn-off all subbasins
+        }
+        var sb_act = eval("poly_sb"+numb);//E: turn-on the selected subbasin
+//        poly_sb2.setMap(map);
+        sb_act.setMap(map);
+    }
+
+
+// *************************** Start: assignation ******************* //
+    function poly_assign(ssbb) {
+        poly_sb0 = new google.maps.Polygon({
+            path: ssbb[0],
+//            strokeColor: '#FF0000',
+            strokeOpacity: 1.0,
+            strokeWeight: 3
+        });
+        poly_sb1 = new google.maps.Polygon({
+            path: ssbb[1],
+//            strokeColor: '#000011',
+            strokeOpacity: 1.0,
+            strokeWeight: 3
+        });
+        poly_sb2 = new google.maps.Polygon({
+            path: ssbb[2],
+//            strokeColor: '#000011',
+            strokeOpacity: 1.0,
+            strokeWeight: 3
+        });
+    }
+    // *************************** End: assignation ******************* //
+
+</script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVNzONb19t-556kuu-ebT5DUF0wCpEt-g&callback=initMap">
+</script>
+</body>
+</html>

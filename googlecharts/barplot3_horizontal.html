@@ -1,0 +1,105 @@
+<html>
+<head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', {'packages':['corechart','bar']});
+        google.charts.setOnLoadCallback(drawStuff);
+
+        function drawStuff() {
+            var data = new google.visualization.arrayToDataTable([
+                ['Galaxy', 'Distance', 'Brightness'],
+                ['Canis Major Dwarf', 80, 233],
+                ['Sagittarius Dwarf', 240, 45],
+                ['Ursa Major II Dwarf', 300, 143],
+                ['Lg. Magellanic Cloud', 500, 190],
+                ['Bootes I', 600, 131]
+            ]);
+
+            var options = {
+                //E: frame (box) features
+                // width: 800,//800,//E: 900 same as the div's width
+                // titlePosition: 'in',//'in' //'out'(D)//'none',
+                //E: Tittle features
+                chart: {
+                    title: 'Nearby galaxies',
+                    // subtitle: 'distance on the left, brightness on the right'
+                },
+                legend: {position: 'none'},
+                // titlePosition: 'in',//'in' //'out'(D)//'none',//E: ?
+                // forceIFrame: 'true',//?
+
+                backgroundColor: {//E: This is only for whole area (full area)
+                    fill: '#ff9966',
+                    fillOpacity: 0.8
+                },
+
+                chartArea: {//E: This is only for internal area (small area)
+                    // width: 400,
+                    backgroundColor: {
+                        fill: '#ccff99',
+                        fillOpacity: 0.9,
+                        // stroke:'#ccff09'
+                    },
+                    title: 'chart-area-tittle',
+                },
+
+                chartArea: {top:0, left:80},
+                //E: horizontal or vertical bars?
+                bars: 'horizontal', //E: Default: vertical.
+                // series: {//E: this does not work for 'Material'
+                //     0: { axis: 'distance' }, // Bind series 0 to an axis named 'distance'.
+                //     1: { axis: 'brightness' } // Bind series 1 to an axis named 'brightness'.
+                // },
+                axes: {
+                    x: {
+                        distance: {label: 'parsecs'}, // Bottom x-axis.
+                        brightness: {side: 'top', label: 'apparent magnitude'} // Top x-axis.
+                    }
+                },
+                hAxis:{
+                    // format:'###.0',//E: number with 1 decimal
+                    format:'#,###.0',//E: thousands separators and 1 decimal
+                    // format:'v= ',//E: antepone 'v=' a cada numero
+
+                    // ticks: [100,200,300,400]//E: ?
+                    title: 'X-tittle',
+                    titleTextStyle: { color: '#cc0099',
+                        fontName: 'global-font-name',
+                        fontSize: '18',
+                        bold: 'true',
+                        italic: 'true'},
+
+                    maxValue: 800,//E: rounds to 800
+
+                    viewWindow: {//E: Set limits to the graph window.
+                        min: 50,
+                        max: 400
+                    }
+                },
+
+                vAxis:{
+                    textPosition: 'out',//'in',//'none',
+                },
+                axisTitlesPosition: 'none',//'in',//'out' (D)//'none'//E: ?
+                // theme: 'maximized',//E:?
+            };
+
+            ////E: Given
+            // var chart = new google.charts.Bar(document.getElementById('dual_x_div'));
+            // chart.draw(data, options);
+
+            // E: Classic
+            var chart = new google.visualization.BarChart(document.getElementById('dual_x_div'));
+            chart.draw(data, options);
+
+            // // //E: "Material Bar-Charts" version. Not supported by old Internet Explorer
+            // var chart = new google.charts.Bar(document.getElementById('dual_x_div'));
+            // chart.draw(data, options);
+            // // chart.draw(data, google.charts.Bar.convertOptions(options));//E: It converts Classic features into "Material"
+        };
+    </script>
+</head>
+<body>
+<div id="dual_x_div" style="width: 900px; height: 500px; border: 1px solid red"></div>
+</body>
+</html>

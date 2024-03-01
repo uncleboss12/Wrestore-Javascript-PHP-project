@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Custom Symbols (Marker)</title>
+    <style>
+        /* Always set the map height explicitly to define the size of the div
+         * element that contains the map. */
+        #map {
+            height: 100%;
+        }
+        /* Optional: Makes the sample page fill the window. */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+<!--<span style='font-size:30px;'>&#9733;</span>-->
+<div id="star1">&#9733;</div>
+<div id="map"></div>
+
+<script>
+    // This example uses SVG path notation to add a vector-based symbol
+    // as the icon for a marker. The resulting icon is a star-shaped symbol
+    // with a pale yellow fill and a thick yellow border.
+
+    function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 4,
+            center: {lat: -25.363882, lng: 131.044922}
+        });
+
+        var goldStar = {
+            path: 'M 125,5 155,90 245,90 175,145 200,230 125,180 50,230 75,145 5,90 95,90 z',
+            fillColor: 'yellow',
+            fillOpacity: 0.8,
+            scale: 0.1,
+            strokeColor: 'gold',
+            strokeWeight: 2
+        };
+        var new_icon = document.getElementById('star1').innerHTML;
+        var options = {
+            position: map.getCenter(),
+            icon: new_icon,//goldStar,
+            map: map};
+
+        var marker = new google.maps.Marker(options);
+    }
+</script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVNzONb19t-556kuu-ebT5DUF0wCpEt-g&callback=initMap">
+</script>
+
+</body>
+</html>
