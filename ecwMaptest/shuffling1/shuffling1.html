@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Removing Polylines</title>
+    <style>
+        #map {height: 100%;}
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+<div id="floating-panel">
+    <h3>Testing Shuffling</h3>
+    <div>
+        <p>subbasin 0</p>
+        <p>subbasin 0</p>
+        <p>subbasin 0</p>
+    </div>
+
+</div>
+<div id="map1"></div>
+<br>
+<div id="map2"></div>
+<br>
+<div id="map3"></div>
+<script>
+    function shuffle1(a) {
+        for (let i = a.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [a[i], a[j]] = [a[j], a[i]];
+        }
+        return a;
+    }
+
+    function shuffle2(array) {
+        let counter = array.length;
+
+        // While there are elements in the array
+        while (counter > 0) {
+            // Pick a random index
+            let index = Math.floor(Math.random() * counter);
+
+            // Decrease counter by 1
+            counter--;
+
+            // And swap the last element with it
+            let temp = array[counter];
+            array[counter] = array[index];
+            array[index] = temp;
+        }
+        return array;
+    }
+
+    var optimized_values = [
+        {"ID": 0,"USERID": 111,"INDVID": 0,"CH": "0"},
+        {"ID": 1,"USERID": 112,"INDVID": 1,"CH": "1"},
+        {"ID": 2,"USERID": 113,"INDVID": 2,"CH": "2"},
+        {"ID": 3,"USERID": 114,"INDVID": 3,"CH": "3"},
+        {"ID": 4,"USERID": 115,"INDVID": 4,"CH": "4"},
+        {"ID": 5,"USERID": 116,"INDVID": 5,"CH": "5"}
+        ];
+    alert("type of var: "+ typeof optimized_values);
+//    alert("type of var: "+ optimized_values);
+    alert(JSON.stringify(optimized_values, null, 4));
+
+    var var0 = optimized_values;// [1, 2, 3, 4, 5];
+    var e0 = document.getElementById("map1");
+    e0.innerHTML = var0;
+    console.log("S0: "+ JSON.stringify(var0));
+    console.log("S0: "+ (var0));
+
+    var var1 = var0;
+    var var0_shuffled;
+//    var var0_shuffled = shuffle1(var0);
+
+    if (var0_shuffled) {
+        var1 = var0_shuffled;
+    }
+
+    var e1 = document.getElementById("map2");
+    e1.innerHTML = var1;
+    console.log("S1: "+ JSON.stringify(var1));
+
+    var var2 = shuffle2(var0);
+    var e2 = document.getElementById("map3");
+    e2.innerHTML = var2;
+    console.log("S2: "+ JSON.stringify(var2));
+</script>
+
+</body>
+</html>
