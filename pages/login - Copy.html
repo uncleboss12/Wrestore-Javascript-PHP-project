@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset=utf-8>
+    <title>WRESTORE - Watershed REstoration using Spatio-Temporal Optimization of REsources</title>
+<!--    <link rel="stylesheet" type="text/css" href="style.css" media="all" />-->
+    <link rel="stylesheet" type="text/css" href="css/style1.css"/>
+    <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Oswald:400,300'>
+    <!--[if IE]-->
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+</head>
+
+<body>
+<!--[if lte IE 6]><script src="js/ie6/warning.js"></script><script>window.onload=function(){e("js/ie6/")}</script><![endif]-->
+<div class="wrapper">
+    <!-- row 1/5: WRESTORE header -->
+    <div class="row row-1">
+        <header id="siteHeader">
+
+            <div>
+                <hgroup>
+                    <h1><a href="/">WRESTORE</a></h1>
+                    <h2>Watershed REstoration using Spatio-Temporal Optimization of REsources</h2>
+                    <h3>Visualize & Design Your Watershed Landscape</h3>
+                </hgroup>
+            </div>
+
+        </header>
+    </div>
+    <!-- end row 1: Main Site Header -->
+
+    <!-- row 2/5: MENU Nav-bar -->
+    <div id="navRow" class="row row-2"> <!-- Nav Row -->
+<!--        <nav id="mainNav"><ul><li><a href="http://wrestore.iupui.edu">Return to Mainpage</a></li></ul></nav>-->
+        <nav id="access" role="navigation">
+            <div class="menu">
+                <div class="menu">
+                    <ul>
+                        <li class="page_item page-item-29"><a href="http://wrestore.oregonstate.edu/">Return to Mainpage</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div><!-- End Nav Row -->
+
+    <div class="row mainFrameRightBck" id="mainFrame">
+        <div id="mainCol">
+            <section id="content">
+                <header id="pageHeader">
+                    <h1>Visualize and Design</h1>
+                </header>
+                <p>Please login in order to begin a new "visualize and design" test or continue with an existing ongoing test! </p>
+                <p><font color="red"><b>NOTE: Before logging in, please make sure you are either using Google Chrome or Mozilla Firefox browser.</b></font></p>
+
+                <h2>Login</h2>
+                <div class="error">
+                    <span></span>
+                </div>
+                <form id='login' action='loginAction.php' method='post' accept-charset='UTF-8'>
+                    <fieldset >
+                        <legend></legend>
+                        <table class="table-style" width="100%" border="0" cellspacing="1">
+                            <tr>
+                                <td width="18%"><label for='username' >Username*:</label></td>
+                                <td width="82%"><input type='text' name='username' id='username'  maxlength="50"  class="required by-re padInput"/><span class="errorMsg"></span></td>
+                            </tr>
+                            <tr>
+                                <td><label for='password' >Password*:</label></td>
+                                <td><input type='password' name='password' id='password' class="required by-re padInput" maxlength="15" /><span class="errorMsg"></span></td>
+                            </tr>
+                            <tr>
+                                <td><input type='hidden' name='submitted' id='submitted' value='1'/></td>
+                                <td><input type='submit' name='Submit' value='Submit' /></td>
+                            </tr>
+                        </table>
+
+                        <p></p>
+                        <p><a href="emailUpdate.php">Forgot Password?</a></p>
+                    </fieldset>
+                </form>
+            </section>
+        </div><!-- end main content column -->
+        <!-- Right Side Column -->
+        <div id="sideCol">
+            <h1>Get Involved</h1>
+            <p>We provide web-based tools for visualizing watershed and designing land use and runoff management alternatives on the landscape.</p>
+            <div class="barButton"><a href="http://wrestore.iupui.edu/visualize-design/how-it-works/" target="_blank">How does Wrestore work?</a></div>
+            <div class="barButton"><a href="http://wrestore.iupui.edu/partners/" target="_blank">Meet our partners</a></div>
+            <div class="barButton"><a href="http://wrestore.iupui.edu/resources/" target="_blank">Learn about our tools</a></div>
+            <div class="barButton"><a href="http://wrestore.iupui.edu/contact/" target="_blank">Questions? Contact us</a></div>
+        </div>
+        <div class="clear"></div>
+    </div><!-- end mainFrame -->
+
+    <div class="row footer">
+        <div id="sponsorsCon">
+            <h2>Sponsors</h2>
+            <a href="http://www.iupui.edu/" target="_blank"><img src="images/logoIUPUI.gif" width="200" height="76" alt="IUPUI" class="sponsorsLogos"></a>
+            <a href="http://oregonstate.edu/" target="_blank"><img src="images/logoOsu.gif" width="200" height="76" alt="Oregon State University" class="sponsorsLogos"></a>
+            <a href="http://www.nsf.gov/" target="_blank"><img src="images/logoNsf.gif" alt="NSF" width="75" height="76" class="sponsorsLogos"></a>
+        </div><!-- end sponsorsCon --></div>
+</div><!-- end Wrapper -->
+<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.js"></script>
+<script type="text/javascript" src="js/jquery.maskedinput.js"></script>
+<script type="text/javascript" src="js/jquery.keyfilter.js"></script>
+<script type="text/javascript" src="js/validate.js"></script>
+</body>
+</html>
