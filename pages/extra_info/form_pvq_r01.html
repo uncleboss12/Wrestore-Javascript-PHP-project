@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .pvq_question {display: inline-flex;/*height: 32px;*/}
+        .q_box {width: 420px;}
+        .req_field {width: 110px;}
+
+        .pvq_question div input{
+          width: 2em; height: 2em;
+          /*vertical-align: middle;*/
+        }
+        .pvq_question div label{
+          text-align: right;
+          font-size: 0.8em;
+          /*width: 32px;*/
+          /*font-size: small;*/
+        }
+        .nc1{
+          width: 72px;
+          height: 42px;
+          text-align: center;
+        }
+        .nc2{
+          width: 68px;
+          height: 42px;
+          text-align: center;
+        }
+        .nc3{
+          text-align: center;
+        }
+        .nq2{
+          width: 68px;
+          text-align: center;
+        }
+        .nq3{
+          width: 70px;
+          text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+<!-- E: by using "$_SERVER['PHP_SELF']", the page is upload again when you click "Submit. -->
+<!--<form method="post" autocomplete="on" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">-->
+<form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
+
+
+
+<!--  <ol style="list-style-type:none;">-->
+
+
+
+        <!-- This hidden input set and fix the selected html-file into the $html_file variable  -->
+        <!-- This was selected on the php file. This variable is after submitted back to php  -->
+        <!-- <input type="hidden" id="custId" name="custId" value="3487"> -->
+        <input type="hidden" id="custId" name="custId" value="<?php echo htmlspecialchars($html_file); ?>">
+
+      <!-- This sets the header of questions -->
+      <div id="stick_top" class="pvq_question">
+        <div class="q_box">&nbsp;</div>
+        <div class="req_field">&nbsp;</div>
+        <div style="display: flex">
+          <div title="Totalmente Opuesto a MI">
+            <div class="nc1"><b>Totally Not like me</b></div>
+            <div class="nc3"><b>1</b></div>
+          </div>
+
+          <div>
+            <div class="nc2">&nbsp;</div>
+            <div class="nc3"><b>2</b></div>
+          </div>
+
+          <div><div class="nc2">&nbsp;</div>
+            <div class="nc3"><b>3</b></div>
+          </div>
+
+          <div><div class="nc2">&nbsp;</div>
+            <div class="nc3"><b>4</b></div>
+          </div>
+
+          <div><div class="nc2">&nbsp;</div>
+            <div class="nc3"><b>5</b></div>
+          </div>
+
+          <div><div class="nc2">&nbsp;</div>
+            <div class="nc3"><b>6</b></div>
+          </div>
+
+          <div title="Totalmente Igual a MI">
+            <div class="nc1"><b>Totally like me</b></div>
+            <div class="nc3"><b>7</b></div>
+          </div>
+
+        </div>
+      </div>
+      <hr>
+
+
+  <!-- For new survey, change the "id"s. It is not allow to set same "id" twice -->
+  <!-- Retrieved from:  https://www.epgroningen.nl/epvq/ -->
+
+
+  <ol>
+    <li class="q4_12">
+      <div class="pvq_question">
+        <div class="q_box" title="Es importante para [él/ ella/ ellos] hacer cosas que [él/ ella/ ellos] disfruta(n)">
+          <b id="epvq_12" >
+            It is important to [him/her/them] to do things [he/she/them] enjoys.</b>
+        </div>
+        <div class="req_field">
+          <span class="error">* <?php echo $pvq_q12_Err;?></span>
+        </div>
+        <div style="display: flex">
+          <div class="nq3">
+            <label class="n4" for="option4_12_1"></label>
+            <input id="option4_12_1" class="big_radio" type="radio" name="pvq_q12" <?php if (isset($pvq_q12) && $pvq_q12=="option_1") echo "checked";?> value="option_1">
+          </div>
+
+          <div class="nq2">
+            <label class="n4" for="option4_12_2"></label>
+            <input id="option4_12_2" class="big_radio" type="radio" name="pvq_q12" <?php if (isset($pvq_q12) && $pvq_q12=="option_2") echo "checked";?> value="option_2">
+          </div>
+          <div class="nq2">
+            <label class="n4" for="option4_12_3"></label>
+            <input id="option4_12_3" class="big_radio" type="radio" name="pvq_q12" <?php if (isset($pvq_q12) && $pvq_q12=="option_3") echo "checked";?> value="option_3">
+          </div>
+          <div class="nq2">
+            <label class="n4" for="option4_12_4"></label>
+            <input id="option4_12_4" class="big_radio" type="radio" name="pvq_q12" <?php if (isset($pvq_q12) && $pvq_q12=="option_4") echo "checked";?> value="option_4">
+          </div>
+          <div class="nq2">
+            <label class="n4" for="option4_12_5"></label>
+            <input id="option4_12_5" class="big_radio" type="radio" name="pvq_q12" <?php if (isset($pvq_q12) && $pvq_q12=="option_5") echo "checked";?> value="option_5">
+          </div>
+          <div class="nq2">
+            <label class="n4" for="option4_12_6"></label>
+            <input id="option4_12_6" class="big_radio" type="radio" name="pvq_q12" <?php if (isset($pvq_q12) && $pvq_q12=="option_6") echo "checked";?> value="option_6">
+          </div>
+          <div class="nq3">
+            <label class="n4" for="option4_12_7"></label>
+            <input id="option4_12_7" class="big_radio" type="radio" name="pvq_q12" <?php if (isset($pvq_q12) && $pvq_q12=="option_7") echo "checked";?> value="option_7">
+          </div>
+          <br>
+        </div>
+      </div>
+
+    </li>
+    <hr>
+
+    <li class="q4_05">
+      <div class="pvq_question">
+        <div class="q_box" title="Es importante para [él/ ella/ ellos] que cada persona tenga iguales oportunidades">
+          <b id="epvq_5">It is important to [him/her/them] that every person has equal opportunities.</b>
+        </div>
+        <div class="req_field">
+          <span class="error">* <?php echo $pvq_q5_Err;?></span>
+        </div>
+        <div style="display: flex">
+          <div class="nq3">
+            <label for="option4_5_1"></label>
+            <input id="option4_5_1" type="radio" name="pvq_q5" <?php if (isset($pvq_q5) && $pvq_q5=="option_1") echo "checked";?> value="option_1">
+          </div>
+          <div class="nq2">
+            <label for="option4_5_2"></label>
+            <input id="option4_5_2" type="radio" name="pvq_q5" <?php if (isset($pvq_q5) && $pvq_q5=="option_2") echo "checked";?> value="option_2">
+          </div>
+          <div class="nq2">
+            <label for="option4_5_3"></label>
+            <input id="option4_5_3" type="radio" name="pvq_q5" <?php if (isset($pvq_q5) && $pvq_q5=="option_3") echo "checked";?> value="option_3">
+          </div>
+          <div class="nq2">
+            <label for="option4_5_4"></label>
+            <input id="option4_5_4" type="radio" name="pvq_q5" <?php if (isset($pvq_q5) && $pvq_q5=="option_4") echo "checked";?> value="option_4">
+          </div>
+          <div class="nq2">
+            <label for="option4_5_5"></label>
+            <input id="option4_5_5" type="radio" name="pvq_q5" <?php if (isset($pvq_q5) && $pvq_q5=="option_5") echo "checked";?> value="option_5">
+          </div>
+          <div class="nq2">
+            <label for="option4_5_6"></label>
+            <input id="option4_5_6" type="radio" name="pvq_q5" <?php if (isset($pvq_q5) && $pvq_q5=="option_6") echo "checked";?> value="option_6">
+          </div>
+          <div class="nq3">
+            <label for="option4_5_7"></label>
+            <input id="option4_5_7" type="radio" name="pvq_q5" <?php if (isset($pvq_q5) && $pvq_q5=="option_7") echo "checked";?> value="option_7">
+          </div>
+          <br>
+        </div>
+      </div>
+    </li>
+    <hr>
+
+    <li class="q4_06">
+      <div class="pvq_question">
+        <div class="q_box" title="Es importante para [él/ ella/ ellos] cuidar a los que están en peor situación">
+          <b id="epvq_6">It is important to [him/her/them] to take care of those who are worse off.</b>
+        </div>
+        <div class="req_field">
+          <span class="error">* <?php echo $pvq_q6_Err;?></span><br></div>
+        <div style="display: flex">
+          <div class="nq3">
+          <label for="option4_6_1"></label>
+          <input id="option4_6_1" type="radio" name="pvq_q6" <?php if (isset($pvq_q6) && $pvq_q6=="option_1") echo "checked";?> value="option_1">
+          </div>
+          <div class="nq2">
+          <label for="option4_6_2"></label>
+          <input id="option4_6_2" type="radio" name="pvq_q6" <?php if (isset($pvq_q6) && $pvq_q6=="option_2") echo "checked";?> value="option_2">
+          </div>
+          <div class="nq2">
+          <label for="option4_6_3"></label>
+          <input id="option4_6_3" type="radio" name="pvq_q6" <?php if (isset($pvq_q6) && $pvq_q6=="option_3") echo "checked";?> value="option_3">
+          </div>
+          <div class="nq2">
+          <label for="option4_6_4"></label>
+          <input id="option4_6_4" type="radio" name="pvq_q6" <?php if (isset($pvq_q6) && $pvq_q6=="option_4") echo "checked";?> value="option_4">
+          </div>
+          <div class="nq2">
+          <label for="option4_6_5"></label>
+          <input id="option4_6_5" type="radio" name="pvq_q6" <?php if (isset($pvq_q6) && $pvq_q6=="option_5") echo "checked";?> value="option_5">
+          </div>
+          <div class="nq2">
+          <label for="option4_6_6"></label>
+          <input id="option4_6_6" type="radio" name="pvq_q6" <?php if (isset($pvq_q6) && $pvq_q6=="option_6") echo "checked";?> value="option_6">
+          </div>
+          <div class="nq3">
+          <label for="option4_6_7"></label>
+          <input id="option4_6_7" type="radio" name="pvq_q6" <?php if (isset($pvq_q6) && $pvq_q6=="option_7") echo "checked";?> value="option_7">
+          </div>
+          <br>
+        </div>
+      </div>
+    </li>
+    <hr>
+
+    <li class="q4_04">
+      <div class="pvq_question">
+        <div class="q_box" title="Es importante para [él/ ella/ ellos] estar en unión con la naturaleza">
+          <b id="epvq_4">It is important to [him/her/them] to be in unity with nature.</b>
+        </div>
+        <div class="req_field">
+          <span class="error">* <?php echo $pvq_q4_Err;?></span>
+        </div>
+        <div style="display: flex">
+          <div class="nq3">
+          <label for="option4_4_1"></label>
+          <input id="option4_4_1" type="radio" name="pvq_q4" <?php if (isset($pvq_q4) && $pvq_q4=="option_1") echo "checked";?> value="option_1">
+          </div>
+          <div class="nq2">
+          <label for="option4_4_2"></label>
+          <input id="option4_4_2" type="radio" name="pvq_q4" <?php if (isset($pvq_q4) && $pvq_q4=="option_2") echo "checked";?> value="option_2">
+          </div>
+
+          <div class="nq2">
+          <label for="option4_4_3"></label>
+          <input id="option4_4_3" type="radio" name="pvq_q4" <?php if (isset($pvq_q4) && $pvq_q4=="option_3") echo "checked";?> value="option_3">
+          </div>
+
+          <div class="nq2">
+          <label for="option4_4_4"></label>
+          <input id="option4_4_4" type="radio" name="pvq_q4" <?php if (isset($pvq_q4) && $pvq_q4=="option_4") echo "checked";?> value="option_4">
+          </div>
+
+          <div class="nq2">
+          <label for="option4_4_5"></label>
+          <input id="option4_4_5" type="radio" name="pvq_q4" <?php if (isset($pvq_q4) && $pvq_q4=="option_5") echo "checked";?> value="option_5">
+          </div>
+
+          <div class="nq2">
+          <label for="option4_4_6"></label>
+          <input id="option4_4_6" type="radio" name="pvq_q4" <?php if (isset($pvq_q4) && $pvq_q4=="option_6") echo "checked";?> value="option_6">
+          </div>
+
+          <div class="nq3">
+          <label for="option4_4_7"></label>
+          <input id="option4_4_7" type="radio" name="pvq_q4" <?php if (isset($pvq_q4) && $pvq_q4=="option_7") echo "checked";?> value="option_7">
+          </div>
+          <br>
+        </div>
+      </div>
+    </li>
+    <hr>
+
+    <li class="q4_03">
+      <div class="pvq_question">
+        <div class="q_box" title="Es importante para [él/ ella/ ellos] respetar la naturaleza">
+          <b id="epvq_3">It is important to [him/her/them] to respect nature.</b>
+        </div>
+        <div class="req_field">
+          <span class="error">* <?php echo $pvq_q3_Err;?></span>
+        </div>
+        <div style="display: flex">
+          <div class="nq3">
+          <label for="option4_3_1"></label>
+          <input id="option4_3_1" type="radio" name="pvq_q3" <?php if (isset($pvq_q3) && $pvq_q3=="option_1") echo "checked";?> value="option_1">
+          </div>
+
+          <div class="nq2">
+          <label for="option4_3_2"></label>
+          <input id="option4_3_2" type="radio" name="pvq_q3" <?php if (isset($pvq_q3) && $pvq_q3=="option_2") echo "checked";?> value="option_2">
+          </div>
+
+          <div class="nq2">
+          <label for="option4_3_3"></label>
+          <input id="option4_3_3" type="radio" name="pvq_q3" <?php if (isset($pvq_q3) && $pvq_q3=="option_3") echo "checked";?> value="option_3">
+          </div>
+
+          <div class="nq2">
+          <label for="option4_3_4"></label>
+          <input id="option4_3_4" type="radio" name="pvq_q3" <?php if (isset($pvq_q3) && $pvq_q3=="option_4") echo "checked";?> value="option_4">
+          </div>
+
+          <div class="nq2">
+          <label for="option4_3_5"></label>
+          <input id="option4_3_5" type="radio" name="pvq_q3" <?php if (isset($pvq_q3) && $pvq_q3=="option_5") echo "checked";?> value="option_5">
+          </div>
+
+          <div class="nq2">
+          <label for="option4_3_6"></label>
+          <input id="option4_3_6" type="radio" name="pvq_q3" <?php if (isset($pvq_q3) && $pvq_q3=="option_6") echo "checked";?> value="option_6">
+          </div>
+
+          <div class="nq3">
+          <label for="option4_3_7"></label>
+          <input id="option4_3_7" type="radio" name="pvq_q3" <?php if (isset($pvq_q3) && $pvq_q3=="option_7") echo "checked";?> value="option_7">
+          </div>
+          <br>
+        </div>
+      </div>
+    </li>
+    <hr>
+
+    <li class="q4_10">
+      <div class="pvq_question">
+        <div class="q_box" title="Es importante para [él/ ella/ ellos] divertirse">
+          <b id="epvq_10">It is important to [him/her/them] to have fun.</b>
+        </div>
+        <div class="req_field">
+          <span class="error">* <?php echo $pvq_q10_Err;?></span>
+        </div>
+        <div style="display: flex">
+          <div class="nq3">
+          <label for="option4_10_1"></label>
+          <input id="option4_10_1" type="radio" name="pvq_q10" <?php if (isset($pvq_q10) && $pvq_q10=="option_1") echo "checked";?> value="option_1">
+          </div>
+
+          <div class="nq2">
+          <label for="option4_10_2"></label>
+          <input id="option4_10_2" type="radio" name="pvq_q10" <?php if (isset($pvq_q10) && $pvq_q10=="option_2") echo "checked";?> value="option_2">
+          </div>
+
+          <div class="nq2">
+          <label for="option4_10_3"></label>
+          <input id="option4_10_3" type="radio" name="pvq_q10" <?php if (isset($pvq_q10) && $pvq_q10=="option_3") echo "checked";?> value="option_3">
+          </div>
+
+          <div class="nq2">
+          <label for="option4_10_4"></label>
+          <input id="option4_10_4" type="radio" name="pvq_q10" <?php if (isset($pvq_q10) && $pvq_q10=="option_4") echo "checked";?> value="option_4">
+          </div>
+
+          <div class="nq2">
+          <label for="option4_10_5"></label>
+          <input id="option4_10_5" type="radio" name="pvq_q10" <?php if (isset($pvq_q10) && $pvq_q10=="option_5") echo "checked";?> value="option_5">
+          </div>
+
+          <div class="nq2">
+          <label for="option4_10_6"></label>
+          <input id="option4_10_6" type="radio" name="pvq_q10" <?php if (isset($pvq_q10) && $pvq_q10=="option_6") echo "checked";?> value="option_6">
+          </div>
+
+          <div class="nq3">
+          <label for="option4_10_7"></label>
+          <input id="option4_10_7" type="radio" name="pvq_q10" <?php if (isset($pvq_q10) && $pvq_q10=="option_7") echo "checked";?> value="option_7">
+          </div>
+          <br>
+        </div>
+      </div>
+    </li>
+    <hr>
+
+    <li class="q4_17">
+      <div class="pvq_question">
+        <div class="q_box" title="Es importante para [él/ ella/ ellos] trabajar duro y ser ambicioso">
+          <b id="epvq_17">It is important to [him/her/them] to work hard and be ambitious.</b>
+        </div>
+        <div class="req_field">
+          <span class="error">* <?php echo $pvq_q17_Err;?></span>
+        </div>
+        <div style="display: flex">
+          <div class="nq3">
+          <label for="option4_17_1"></label>
+          <input id="option4_17_1" type="radio" name="pvq_q17" <?php if (isset($pvq_q17) && $pvq_q17=="option_1") echo "checked";?> value="option_1">
+          </div>
+
+          <div class="nq2">
+          <label for="option4_17_2"></label>
+          <input id="option4_17_2" type="radio" name="pvq_q17" <?php if (isset($pvq_q17) && $pvq_q17=="option_2") echo "checked";?> value="option_2">
+          </div>
+
+          <div class="nq2">
+          <label for="option4_17_3"></label>
+          <input id="option4_17_3" type="radio" name="pvq_q17" <?php if (isset($pvq_q17) && $pvq_q17=="option_3") echo "checked";?> value="option_3">
+          </div>
+
+          <div class="nq2">
+          <label for="option4_17_4"></label>
+          <input id="option4_17_4" type="radio" name="pvq_q17" <?php if (isset($pvq_q17) && $pvq_q17=="option_4") echo "checked";?> value="option_4">
+          </div>
+
+          <div class="nq2">
+          <label for="option4_17_5"></label>
+          <input id="option4_17_5" type="radio" name="pvq_q17" <?php if (isset($pvq_q17) && $pvq_q17=="option_5") echo "checked";?> value="option_5">
+          </div>
+
+          <div class="nq2">
+          <label for="option4_17_6"></label>
+          <input id="option4_17_6" type="radio" name="pvq_q17" <?php if (isset($pvq_q17) && $pvq_q17=="option_6") echo "checked";?> value="option_6">
+          </div>
+
+          <div class="nq3">
+          <label for="option4_17_7"></label>
+          <input id="option4_17_7" type="radio" name="pvq_q17" <?php if (isset($pvq_q17) && $pvq_q17=="option_7") echo "checked";?> value="option_7">
+          </div>
+          <br>
+        </div>
+      </div>
+    </li>
+    <hr>
+
+    <li class="q4_02">
+      <div class="pvq_question">
+        <div class="q_box" title="Es importante para [él/ ella/ ellos] proteger el medio ambiente">
+          <b id="epvq_2">It is important to [him/her/them] to protect the environment.</b>
+        </div>
+        <div class="req_field">
+          <span class="error">* <?php echo $pvq_q2_Err;?></span>
+        </div>
+        <div style="display: flex">
+          <div class="nq3">
+          <label for="option4_2_1"></label>
+          <input id="option4_2_1" type="radio" name="pvq_q2" <?php if (isset($pvq_q2) && $pvq_q2=="option_1") echo "checked";?> value="option_1">
+          </div>
+
+          <div class="nq2">
+          <label for="option4_2_2"></label>
+          <input id="option4_2_2" type="radio" name="pvq_q2" <?php if (isset($pvq_q2) && $pvq_q2=="option_2") echo "checked";?> value="option_2">
+          </div>
+
+          <div class="nq2">
+          <label for="option4_2_3"></label>
+          <input id="option4_2_3" type="radio" name="pvq_q2" <?php if (isset($pvq_q2) && $pvq_q2=="option_3") echo "checked";?> value="option_3">
+          </div>
+
+          <div class="nq2">
+          <label for="option4_2_4"></label>
+          <input id="option4_2_4" type="radio" name="pvq_q2" <?php if (isset($pvq_q2) && $pvq_q2=="option_4") echo "checked";?> value="option_4">
+          </div>
+
+          <div class="nq2">
+          <label for="option4_2_5"></label>
+          <input id="option4_2_5" type="radio" name="pvq_q2" <?php if (isset($pvq_q2) && $pvq_q2=="option_5") echo "checked";?> value="option_5">
+          </div>
+
+          <div class="nq2">
+          <label for="option4_2_6"></label>
+          <input id="option4_2_6" type="radio" name="pvq_q2" <?php if (isset($pvq_q2) && $pvq_q2=="option_6") echo "checked";?> value="option_6">
+          </div>
+
+          <div class="nq3">
+          <label for="option4_2_7"></label>
+          <input id="option4_2_7" type="radio" name="pvq_q2" <?php if (isset($pvq_q2) && $pvq_q2=="option_7") echo "checked";?> value="option_7">
+          </div>
+          <br>
+        </div>
+      </div>
+    </li>
+    <hr>
+
+    <li class="q4_14">
+      <div class="pvq_question">
+        <div class="q_box" title="Es importante para [él/ ella/ ellos] tener autoridad sobre otros">
+          <b id="epvq_14">It is important to [him/her/them] to have authority over others.</b>
+        </div>
+        <div class="req_field">
+          <span class="error">* <?php echo $pvq_q14_Err;?></span>
+        </div>
+        <div style="display: flex">
+          <div class="nq3">
+          <label for="option4_14_1"></label>
+          <input id="option4_14_1" type="radio" name="pvq_q14" <?php if (isset($pvq_q14) && $pvq_q14=="option_1") echo "checked";?> value="option_1">
+          </div>
+
+          <div class="nq2">
+          <label for="option4_14_2"></label>
+          <input id="option4_14_2" type="radio" name="pvq_q14" <?php if (isset($pvq_q14) && $pvq_q14=="option_2") echo "checked";?> value="option_2">
+          </div>
+
+          <div class="nq2">
+          <label for="option4_14_3"></label>
+          <input id="option4_14_3" type="radio" name="pvq_q14" <?php if (isset($pvq_q14) && $pvq_q14=="option_3") echo "checked";?> value="option_3">
+          </div>
+
+          <div class="nq2">
+          <label for="option4_14_4"></label>
+          <input id="option4_14_4" type="radio" name="pvq_q14" <?php if (isset($pvq_q14) && $pvq_q14=="option_4") echo "checked";?> value="option_4">
+          </div>
+
+          <div class="nq2">
+          <label for="option4_14_5"></label>
+          <input id="option4_14_5" type="radio" name="pvq_q14" <?php if (isset($pvq_q14) && $pvq_q14=="option_5") echo "checked";?> value="option_5">
+          </div>
+
+          <div class="nq2">
+          <label for="option4_14_6"></label>
+          <input id="option4_14_6" type="radio" name="pvq_q14" <?php if (isset($pvq_q14) && $pvq_q14=="option_6") echo "checked";?> value="option_6">
+          </div>
+
+          <div class="nq3">
+          <label for="option4_14_7"></label>
+          <input id="option4_14_7" type="radio" name="pvq_q14" <?php if (isset($pvq_q14) && $pvq_q14=="option_7") echo "checked";?> value="option_7">
+          </div>
+          <br>
+        </div>
+      </div>
+    </li>
+    <hr>
+
+    <li class="q4_15">
+      <div class="pvq_question">
+        <div class="q_box" title="Es importante para [él/ ella/ ellos] ser influyente">
+          <b id="epvq_15">It is important to [him/her/them] to be influential.</b>
+        </div>
+        <div class="req_field">
+          <span class="error">* <?php echo $pvq_q15_Err;?></span>
+        </div>
+        <div style="display: flex">
+          <div class="nq3">
+          <label for="option4_15_1"></label>
+          <input id="option4_15_1" type="radio" name="pvq_q15" <?php if (isset($pvq_q15) && $pvq_q15=="option_1") echo "checked";?> value="option_1">
+          </div>
+
+          <div class="nq2">
+          <label for="option4_15_2"></label>
+          <input id="option4_15_2" type="radio" name="pvq_q15" <?php if (isset($pvq_q15) && $pvq_q15=="option_2") echo "checked";?> value="option_2">
+          </div>
+
+          <div class="nq2">
+          <label for="option4_15_3"></label>
+          <input id="option4_15_3" type="radio" name="pvq_q15" <?php if (isset($pvq_q15) && $pvq_q15=="option_3") echo "checked";?> value="option_3">
+          </div>
+
+          <div class="nq2">
+          <label for="option4_15_4"></label>
+          <input id="option4_15_4" type="radio" name="pvq_q15" <?php if (isset($pvq_q15) && $pvq_q15=="option_4") echo "checked";?> value="option_4">
+          </div>
+
+          <div class="nq2">
+          <label for="option4_15_5"></label>
+          <input id="option4_15_5" type="radio" name="pvq_q15" <?php if (isset($pvq_q15) && $pvq_q15=="option_5") echo "checked";?> value="option_5">
+          </div>
+
+          <div class="nq2">
+          <label for="option4_15_6"></label>
+          <input id="option4_15_6" type="radio" name="pvq_q15" <?php if (isset($pvq_q15) && $pvq_q15=="option_6") echo "checked";?> value="option_6">
+          </div>
+
+          <div class="nq3">
+          <label for="option4_15_7"></label>
+          <input id="option4_15_7" type="radio" name="pvq_q15" <?php if (isset($pvq_q15) && $pvq_q15=="option_7") echo "checked";?> value="option_7">
+          </div>
+          <br>
+        </div>
+      </div>
+    </li>
+    <hr>
+
+    <li class="q4_11">
+      <div class="pvq_question">
+        <div class="q_box" title="Es importante para [él/ ella/ ellos] disfrutar los placeres de la vida">
+          <b id="epvq_11">It is important to [him/her/them] to enjoy the life's pleasures.</b>
+        </div>
+        <div class="req_field">
+          <span class="error">* <?php echo $pvq_q11_Err;?></span>
+        </div>
+        <div style="display: flex">
+          <div class="nq3">
+          <label for="option4_11_1"></label>
+          <input id="option4_11_1" type="radio" name="pvq_q11" <?php if (isset($pvq_q11) && $pvq_q11=="option_1") echo "checked";?> value="option_1">
+          </div>
+
+          <div class="nq2">
+          <label for="option4_11_2"></label>
+          <input id="option4_11_2" type="radio" name="pvq_q11" <?php if (isset($pvq_q11) && $pvq_q11=="option_2") echo "checked";?> value="option_2">
+          </div>
+
+          <div class="nq2">
+          <label for="option4_11_3"></label>
+          <input id="option4_11_3" type="radio" name="pvq_q11" <?php if (isset($pvq_q11) && $pvq_q11=="option_3") echo "checked";?> value="option_3">
+          </div>
+
+          <div class="nq2">
+          <label for="option4_11_4"></label>
+          <input id="option4_11_4" type="radio" name="pvq_q11" <?php if (isset($pvq_q11) && $pvq_q11=="option_4") echo "checked";?> value="option_4">
+          </div>
+
+          <div class="nq2">
+          <label for="option4_11_5"></label>
+          <input id="option4_11_5" type="radio" name="pvq_q11" <?php if (isset($pvq_q11) && $pvq_q11=="option_5") echo "checked";?> value="option_5">
+          </div>
+
+          <div class="nq2">
+          <label for="option4_11_6"></label>
+          <input id="option4_11_6" type="radio" name="pvq_q11" <?php if (isset($pvq_q11) && $pvq_q11=="option_6") echo "checked";?> value="option_6">
+          </div>
+
+          <div class="nq3">
+          <label for="option4_11_7"></label>
+          <input id="option4_11_7" type="radio" name="pvq_q11" <?php if (isset($pvq_q11) && $pvq_q11=="option_7") echo "checked";?> value="option_7">
+          </div>
+          <br>
+        </div>
+      </div>
+    </li>
+    <hr>
+
+    <li class="q4_07">
+      <div class="pvq_question">
+        <div class="q_box" title="Es importante para [él/ ella/ ellos] que cada persona sea tratada justamente">
+          <b id="epvq_7">It is important to [him/her/them] that every person is treated justly.</b>
+        </div>
+        <div class="req_field">
+          <span class="error">* <?php echo $pvq_q7_Err;?></span>
+        </div>
+        <div style="display: flex">
+          <div class="nq3">
+          <label for="option4_7_1"></label>
+          <input id="option4_7_1" type="radio" name="pvq_q7" <?php if (isset($pvq_q7) && $pvq_q7=="option_1") echo "checked";?> value="option_1">
+          </div>
+
+          <div class="nq2">
+          <label for="option4_7_2"></label>
+          <input id="option4_7_2" type="radio" name="pvq_q7" <?php if (isset($pvq_q7) && $pvq_q7=="option_2") echo "checked";?> value="option_2">
+          </div>
+
+          <div class="nq2">
+          <label for="option4_7_3"></label>
+          <input id="option4_7_3" type="radio" name="pvq_q7" <?php if (isset($pvq_q7) && $pvq_q7=="option_3") echo "checked";?> value="option_3">
+          </div>
+
+          <div class="nq2">
+          <label for="option4_7_4"></label>
+          <input id="option4_7_4" type="radio" name="pvq_q7" <?php if (isset($pvq_q7) && $pvq_q7=="option_4") echo "checked";?> value="option_4">
+          </div>
+
+          <div class="nq2">
+          <label for="option4_7_5"></label>
+          <input id="option4_7_5" type="radio" name="pvq_q7" <?php if (isset($pvq_q7) && $pvq_q7=="option_5") echo "checked";?> value="option_5">
+          </div>
+
+          <div class="nq2">
+          <label for="option4_7_6"></label>
+          <input id="option4_7_6" type="radio" name="pvq_q7" <?php if (isset($pvq_q7) && $pvq_q7=="option_6") echo "checked";?> value="option_6">
+          </div>
+
+          <div class="nq3">
+          <label for="option4_7_7"></label>
+          <input id="option4_7_7" type="radio" name="pvq_q7" <?php if (isset($pvq_q7) && $pvq_q7=="option_7") echo "checked";?> value="option_7">
+          </div>
+          <br>
+        </div>
+      </div>
+    </li>
+    <hr>
+
+    <li class="q4_09">
+      <div class="pvq_question">
+        <div class="q_box" title="Es importante para [él/ ella/ ellos] dar ayuda a otros">
+          <b id="epvq_9">It is important to [him/her/them] to be helpful to others.</b>
+        </div>
+        <div class="req_field">
+          <span class="error">* <?php echo $pvq_q9_Err;?></span>
+        </div>
+        <div style="display: flex">
+          <div class="nq3">
+          <label for="option4_9_1"></label>
+          <input id="option4_9_1" type="radio" name="pvq_q9" <?php if (isset($pvq_q9) && $pvq_q9=="option_1") echo "checked";?> value="option_1">
+          </div>
+
+          <div class="nq2">
+          <label for="option4_9_2"></label>
+          <input id="option4_9_2" type="radio" name="pvq_q9" <?php if (isset($pvq_q9) && $pvq_q9=="option_2") echo "checked";?> value="option_2">
+          </div>
+
+          <div class="nq2">
+          <label for="option4_9_3"></label>
+          <input id="option4_9_3" type="radio" name="pvq_q9" <?php if (isset($pvq_q9) && $pvq_q9=="option_3") echo "checked";?> value="option_3">
+          </div>
+
+          <div class="nq2">
+          <label for="option4_9_4"></label>
+          <input id="option4_9_4" type="radio" name="pvq_q9" <?php if (isset($pvq_q9) && $pvq_q9=="option_4") echo "checked";?> value="option_4">
+          </div>
+
+          <div class="nq2">
+          <label for="option4_9_5"></label>
+          <input id="option4_9_5" type="radio" name="pvq_q9" <?php if (isset($pvq_q9) && $pvq_q9=="option_5") echo "checked";?> value="option_5">
+          </div>
+
+          <div class="nq2">
+          <label for="option4_9_6"></label>
+          <input id="option4_9_6" type="radio" name="pvq_q9" <?php if (isset($pvq_q9) && $pvq_q9=="option_6") echo "checked";?> value="option_6">
+          </div>
+
+          <div class="nq3">
+          <label for="option4_9_7"></label>
+          <input id="option4_9_7" type="radio" name="pvq_q9" <?php if (isset($pvq_q9) && $pvq_q9=="option_7") echo "checked";?> value="option_7">
+          </div>
+          <br>
+        </div>
+      </div>
+    </li>
+    <hr>
+
+    <li class="q4_08">
+      <div class="pvq_question">
+        <div class="q_box" title="Es importante para [él/ ella/ ellos] que no haya guerra o conflicto">
+          <b id="epvq_8">It is important to [him/her/them] that there is no war or conflict.</b>
+        </div>
+        <div class="req_field">
+          <span class="error">* <?php echo $pvq_q8_Err;?></span>
+        </div>
+        <div style="display: flex">
+          <div class="nq3">
+          <label for="option4_8_1"></label>
+          <input id="option4_8_1" type="radio" name="pvq_q8" <?php if (isset($pvq_q8) && $pvq_q8=="option_1") echo "checked";?> value="option_1">
+          </div>
+
+          <div class="nq2">
+          <label for="option4_8_2"></label>
+          <input id="option4_8_2" type="radio" name="pvq_q8" <?php if (isset($pvq_q8) && $pvq_q8=="option_2") echo "checked";?> value="option_2">
+          </div>
+
+          <div class="nq2">
+          <label for="option4_8_3"></label>
+          <input id="option4_8_3" type="radio" name="pvq_q8" <?php if (isset($pvq_q8) && $pvq_q8=="option_3") echo "checked";?> value="option_3">
+          </div>
+
+          <div class="nq2">
+          <label for="option4_8_4"></label>
+          <input id="option4_8_4" type="radio" name="pvq_q8" <?php if (isset($pvq_q8) && $pvq_q8=="option_4") echo "checked";?> value="option_4">
+          </div>
+
+          <div class="nq2">
+          <label for="option4_8_5"></label>
+          <input id="option4_8_5" type="radio" name="pvq_q8" <?php if (isset($pvq_q8) && $pvq_q8=="option_5") echo "checked";?> value="option_5">
+          </div>
+
+          <div class="nq2">
+          <label for="option4_8_6"></label>
+          <input id="option4_8_6" type="radio" name="pvq_q8" <?php if (isset($pvq_q8) && $pvq_q8=="option_6") echo "checked";?> value="option_6">
+          </div>
+
+          <div class="nq3">
+          <label for="option4_8_7"></label>
+          <input id="option4_8_7" type="radio" name="pvq_q8" <?php if (isset($pvq_q8) && $pvq_q8=="option_7") echo "checked";?> value="option_7">
+          </div>
+          <br>
+        </div>
+      </div>
+    </li>
+    <hr>
+
+    <li class="q4_16">
+      <div class="pvq_question">
+        <div class="q_box" title="Es importante para [él/ ella/ ellos] tener dinero y posesiones">
+          <b id="epvq_16">It is important to [him/her/them] to have money and possessions.</b>
+        </div>
+        <div class="req_field">
+          <span class="error">* <?php echo $pvq_q16_Err;?></span>
+        </div>
+        <div style="display: flex">
+          <div class="nq3">
+          <label for="option4_16_1"></label>
+          <input id="option4_16_1" type="radio" name="pvq_q16" <?php if (isset($pvq_q16) && $pvq_q16=="option_1") echo "checked";?> value="option_1">
+          </div>
+
+          <div class="nq2">
+          <label for="option4_16_2"></label>
+          <input id="option4_16_2" type="radio" name="pvq_q16" <?php if (isset($pvq_q16) && $pvq_q16=="option_2") echo "checked";?> value="option_2">
+          </div>
+
+          <div class="nq2">
+          <label for="option4_16_3"></label>
+          <input id="option4_16_3" type="radio" name="pvq_q16" <?php if (isset($pvq_q16) && $pvq_q16=="option_3") echo "checked";?> value="option_3">
+          </div>
+
+          <div class="nq2">
+          <label for="option4_16_4"></label>
+          <input id="option4_16_4" type="radio" name="pvq_q16" <?php if (isset($pvq_q16) && $pvq_q16=="option_4") echo "checked";?> value="option_4">
+          </div>
+
+          <div class="nq2">
+          <label for="option4_16_5"></label>
+          <input id="option4_16_5" type="radio" name="pvq_q16" <?php if (isset($pvq_q16) && $pvq_q16=="option_5") echo "checked";?> value="option_5">
+          </div>
+
+          <div class="nq2">
+          <label for="option4_16_6"></label>
+          <input id="option4_16_6" type="radio" name="pvq_q16" <?php if (isset($pvq_q16) && $pvq_q16=="option_6") echo "checked";?> value="option_6">
+          </div>
+
+          <div class="nq3">
+          <label for="option4_16_7"></label>
+          <input id="option4_16_7" type="radio" name="pvq_q16" <?php if (isset($pvq_q16) && $pvq_q16=="option_7") echo "checked";?> value="option_7">
+          </div>
+          <br>
+        </div>
+      </div>
+    </li>
+    <hr>
+
+    <li class="q4_01">
+      <div class="pvq_question">
+        <div class="q_box" title="Es importante para [él/ ella/ ellos] prevenir la contaminación ambiental">
+          <b id="epvq_1">It is important to [him/her/them] to prevent environmental pollution.</b>
+        </div>
+        <div class="req_field">
+          <span class="error">* <?php echo $pvq_q1_Err;?></span>
+        </div>
+        <div style="display: flex">
+          <div class="nq3">
+          <label for="option4_1_1"></label>
+          <input id="option4_1_1" type="radio" name="pvq_q1" <?php if (isset($pvq_q1) && $pvq_q1=="option_1") echo "checked";?> value="option_1">
+          </div>
+
+          <div class="nq2">
+          <label for="option4_1_2"></label>
+          <input id="option4_1_2" type="radio" name="pvq_q1" <?php if (isset($pvq_q1) && $pvq_q1=="option_2") echo "checked";?> value="option_2">
+          </div>
+
+          <div class="nq2">
+          <label for="option4_1_3"></label>
+          <input id="option4_1_3" type="radio" name="pvq_q1" <?php if (isset($pvq_q1) && $pvq_q1=="option_3") echo "checked";?> value="option_3">
+          </div>
+
+          <div class="nq2">
+          <label for="option4_1_4"></label>
+          <input id="option4_1_4" type="radio" name="pvq_q1" <?php if (isset($pvq_q1) && $pvq_q1=="option_4") echo "checked";?> value="option_4">
+          </div>
+
+          <div class="nq2">
+          <label for="option4_1_5"></label>
+          <input id="option4_1_5" type="radio" name="pvq_q1" <?php if (isset($pvq_q1) && $pvq_q1=="option_5") echo "checked";?> value="option_5">
+          </div>
+
+          <div class="nq2">
+          <label for="option4_1_6"></label>
+          <input id="option4_1_6" type="radio" name="pvq_q1" <?php if (isset($pvq_q1) && $pvq_q1=="option_6") echo "checked";?> value="option_6">
+          </div>
+
+          <div class="nq3">
+          <label for="option4_1_7"></label>
+          <input id="option4_1_7" type="radio" name="pvq_q1" <?php if (isset($pvq_q1) && $pvq_q1=="option_7") echo "checked";?> value="option_7">
+          </div>
+          <br>
+        </div>
+      </div>
+    </li>
+    <hr>
+
+    <li class="q4_13">
+      <div class="pvq_question">
+        <div class="q_box" title="Es importante para [él/ ella/ ellos] tener control sobre las acciones de otros">
+          <b id="epvq_13">It is important to [him/her/them] to have control over others' actions.</b>
+        </div>
+        <div class="req_field">
+          <span class="error">* <?php echo $pvq_q13_Err;?></span>
+        </div>
+        <div style="display: flex">
+          <div class="nq3">
+          <label for="option4_13_1"></label>
+          <input id="option4_13_1" type="radio" name="pvq_q13" <?php if (isset($pvq_q13) && $pvq_q13=="option_1") echo "checked";?> value="option_1">
+          </div>
+
+          <div class="nq2">
+          <label for="option4_13_2"></label>
+          <input id="option4_13_2" type="radio" name="pvq_q13" <?php if (isset($pvq_q13) && $pvq_q13=="option_2") echo "checked";?> value="option_2">
+          </div>
+
+          <div class="nq2">
+          <label for="option4_13_3"></label>
+          <input id="option4_13_3" type="radio" name="pvq_q13" <?php if (isset($pvq_q13) && $pvq_q13=="option_3") echo "checked";?> value="option_3">
+          </div>
+
+          <div class="nq2">
+          <label for="option4_13_4"></label>
+          <input id="option4_13_4" type="radio" name="pvq_q13" <?php if (isset($pvq_q13) && $pvq_q13=="option_4") echo "checked";?> value="option_4">
+          </div>
+
+          <div class="nq2">
+          <label for="option4_13_5"></label>
+          <input id="option4_13_5" type="radio" name="pvq_q13" <?php if (isset($pvq_q13) && $pvq_q13=="option_5") echo "checked";?> value="option_5">
+          </div>
+
+          <div class="nq2">
+          <label for="option4_13_6"></label>
+          <input id="option4_13_6" type="radio" name="pvq_q13" <?php if (isset($pvq_q13) && $pvq_q13=="option_6") echo "checked";?> value="option_6">
+          </div>
+
+          <div class="nq3">
+          <label for="option4_13_7"></label>
+          <input id="option4_13_7" type="radio" name="pvq_q13" <?php if (isset($pvq_q13) && $pvq_q13=="option_7") echo "checked";?> value="option_7">
+          </div>
+          <br>
+        </div>
+      </div>
+    </li>
+    <hr>
+  </ol>
+
+    <input type="submit" name="submit" value="Submit">
+</form>
+
+</body>
+</html>

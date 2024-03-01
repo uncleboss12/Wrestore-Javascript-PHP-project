@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+      div label {
+        width: 135px;
+        height: 50px;
+        /* border: 1px solid black; */
+      }
+    </style>
+</head>
+
+<body>
+<!-- E: by using "$_SERVER['PHP_SELF']", the page is upload again when you click "Submit. -->
+<!--<form method="post" autocomplete="on" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">-->
+<form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
+    <ul style="list-style-type:none;">
+
+
+      <!-- This hidden input set and fix the selected html-file into the $html_file variable  -->
+      <!-- This was selected on the php file. This variable is after submitted back to php  -->
+      <!-- <input type="hidden" id="custId" name="custId" value="3487"> -->
+      <input type="hidden" id="custId" name="custId" value="<?php echo htmlspecialchars($html_file); ?>">
+
+
+      <!-- For new survey, change the "id"s. It is not allow to set same "id" twice -->
+      <!-- Retrieved from:  https://www.epgroningen.nl/epvq/ -->
+
+      <b id="epvq_1">1. It is important to [him/her/them] to prevent environmental pollution.</b><span class="error">* <?php echo $pvq_q1_Err;?></span><br>
+      <div style="display: flex">
+        <input id="option4_1_1" type="radio" name="pvq_q1" <?php if (isset($pvq_q1) && $pvq_q1=="option_1") echo "checked";?> value="option_1">
+        <label for="option4_1_1">Not like me at all</label><br>
+
+        <input id="option4_1_2" type="radio" name="pvq_q1" <?php if (isset($pvq_q1) && $pvq_q1=="option_2") echo "checked";?> value="option_2">
+        <label for="option4_1_2">Not like me</label><br>
+
+        <input id="option4_1_3" type="radio" name="pvq_q1" <?php if (isset($pvq_q1) && $pvq_q1=="option_3") echo "checked";?> value="option_3">
+        <label for="option4_1_3">A little like me</label><br>
+
+        <input id="option4_1_4" type="radio" name="pvq_q1" <?php if (isset($pvq_q1) && $pvq_q1=="option_4") echo "checked";?> value="option_4">
+        <label for="option4_1_4">Moderately like me</label><br>
+
+        <input id="option4_1_5" type="radio" name="pvq_q1" <?php if (isset($pvq_q1) && $pvq_q1=="option_5") echo "checked";?> value="option_5">
+        <label for="option4_1_5">Like me</label><br>
+
+        <input id="option4_1_6" type="radio" name="pvq_q1" <?php if (isset($pvq_q1) && $pvq_q1=="option_6") echo "checked";?> value="option_6">
+        <label for="option4_1_6">Very much like me</label><br>
+        <br>
+      </div>
+
+
+      <b id="epvq_15">15. It is important to [him/her/them] to be influential.</b><span class="error">* <?php echo $pvq_q15_Err;?></span><br>
+      <div style="display: flex">
+        <input id="option4_15_1" type="radio" name="pvq_q15" <?php if (isset($pvq_q15) && $pvq_q15=="option_1") echo "checked";?> value="option_1">
+        <label for="option4_15_1">Not like me at all</label><br>
+
+        <input id="option4_15_2" type="radio" name="pvq_q15" <?php if (isset($pvq_q15) && $pvq_q15=="option_2") echo "checked";?> value="option_2">
+        <label for="option4_15_2">Not like me</label><br>
+
+        <input id="option4_15_3" type="radio" name="pvq_q15" <?php if (isset($pvq_q15) && $pvq_q15=="option_3") echo "checked";?> value="option_3">
+        <label for="option4_15_3">A little like me</label><br>
+
+        <input id="option4_15_4" type="radio" name="pvq_q15" <?php if (isset($pvq_q15) && $pvq_q15=="option_4") echo "checked";?> value="option_4">
+        <label for="option4_15_4">Moderately like me</label><br>
+
+        <input id="option4_15_5" type="radio" name="pvq_q15" <?php if (isset($pvq_q15) && $pvq_q15=="option_5") echo "checked";?> value="option_5">
+        <label for="option4_15_5">Like me</label><br>
+
+        <input id="option4_15_6" type="radio" name="pvq_q15" <?php if (isset($pvq_q15) && $pvq_q15=="option_6") echo "checked";?> value="option_6">
+        <label for="option4_15_6">Very much like me</label><br>
+        <br>
+      </div>
+
+
+      <b id="epvq_9">9. It is important to [him/her/them] to be helpful to others.</b><span class="error">* <?php echo $pvq_q9_Err;?></span><br>
+      <div style="display: flex">
+        <input id="option4_9_1" type="radio" name="pvq_q9" <?php if (isset($pvq_q9) && $pvq_q9=="option_1") echo "checked";?> value="option_1">
+        <label for="option4_9_1">Not like me at all</label><br>
+
+        <input id="option4_9_2" type="radio" name="pvq_q9" <?php if (isset($pvq_q9) && $pvq_q9=="option_2") echo "checked";?> value="option_2">
+        <label for="option4_9_2">Not like me</label><br>
+
+        <input id="option4_9_3" type="radio" name="pvq_q9" <?php if (isset($pvq_q9) && $pvq_q9=="option_3") echo "checked";?> value="option_3">
+        <label for="option4_9_3">A little like me</label><br>
+
+        <input id="option4_9_4" type="radio" name="pvq_q9" <?php if (isset($pvq_q9) && $pvq_q9=="option_4") echo "checked";?> value="option_4">
+        <label for="option4_9_4">Moderately like me</label><br>
+
+        <input id="option4_9_5" type="radio" name="pvq_q9" <?php if (isset($pvq_q9) && $pvq_q9=="option_5") echo "checked";?> value="option_5">
+        <label for="option4_9_5">Like me</label><br>
+
+        <input id="option4_9_6" type="radio" name="pvq_q9" <?php if (isset($pvq_q9) && $pvq_q9=="option_6") echo "checked";?> value="option_6">
+        <label for="option4_9_6">Very much like me</label><br>
+        <br>
+      </div>
+
+
+      <b id="epvq_17">17. It is important to [him/her/them] to work hard and be ambitious.</b><span class="error">* <?php echo $pvq_q17_Err;?></span><br>
+      <div style="display: flex">
+        <input id="option4_17_1" type="radio" name="pvq_q17" <?php if (isset($pvq_q17) && $pvq_q17=="option_1") echo "checked";?> value="option_1">
+        <label for="option4_17_1">Not like me at all</label><br>
+
+        <input id="option4_17_2" type="radio" name="pvq_q17" <?php if (isset($pvq_q17) && $pvq_q17=="option_2") echo "checked";?> value="option_2">
+        <label for="option4_17_2">Not like me</label><br>
+
+        <input id="option4_17_3" type="radio" name="pvq_q17" <?php if (isset($pvq_q17) && $pvq_q17=="option_3") echo "checked";?> value="option_3">
+        <label for="option4_17_3">A little like me</label><br>
+
+        <input id="option4_17_4" type="radio" name="pvq_q17" <?php if (isset($pvq_q17) && $pvq_q17=="option_4") echo "checked";?> value="option_4">
+        <label for="option4_17_4">Moderately like me</label><br>
+
+        <input id="option4_17_5" type="radio" name="pvq_q17" <?php if (isset($pvq_q17) && $pvq_q17=="option_5") echo "checked";?> value="option_5">
+        <label for="option4_17_5">Like me</label><br>
+
+        <input id="option4_17_6" type="radio" name="pvq_q17" <?php if (isset($pvq_q17) && $pvq_q17=="option_6") echo "checked";?> value="option_6">
+        <label for="option4_17_6">Very much like me</label><br>
+        <br>
+      </div>
+
+
+      <b id="epvq_5">5. It is important to [him/her/them] that every person has equal opportunities.</b><span class="error">* <?php echo $pvq_q5_Err;?></span><br>
+      <div style="display: flex">
+        <input id="option4_5_1" type="radio" name="pvq_q5" <?php if (isset($pvq_q5) && $pvq_q5=="option_1") echo "checked";?> value="option_1">
+        <label for="option4_5_1">Not like me at all</label><br>
+
+        <input id="option4_5_2" type="radio" name="pvq_q5" <?php if (isset($pvq_q5) && $pvq_q5=="option_2") echo "checked";?> value="option_2">
+        <label for="option4_5_2">Not like me</label><br>
+
+        <input id="option4_5_3" type="radio" name="pvq_q5" <?php if (isset($pvq_q5) && $pvq_q5=="option_3") echo "checked";?> value="option_3">
+        <label for="option4_5_3">A little like me</label><br>
+
+        <input id="option4_5_4" type="radio" name="pvq_q5" <?php if (isset($pvq_q5) && $pvq_q5=="option_4") echo "checked";?> value="option_4">
+        <label for="option4_5_4">Moderately like me</label><br>
+
+        <input id="option4_5_5" type="radio" name="pvq_q5" <?php if (isset($pvq_q5) && $pvq_q5=="option_5") echo "checked";?> value="option_5">
+        <label for="option4_5_5">Like me</label><br>
+
+        <input id="option4_5_6" type="radio" name="pvq_q5" <?php if (isset($pvq_q5) && $pvq_q5=="option_6") echo "checked";?> value="option_6">
+        <label for="option4_5_6">Very much like me</label><br>
+        <br>
+      </div>
+
+
+      <b id="epvq_11">11. It is important to [him/her/them] to enjoy the life's pleasures.</b><span class="error">* <?php echo $pvq_q11_Err;?></span><br>
+      <div style="display: flex">
+        <input id="option4_11_1" type="radio" name="pvq_q11" <?php if (isset($pvq_q11) && $pvq_q11=="option_1") echo "checked";?> value="option_1">
+        <label for="option4_11_1">Not like me at all</label><br>
+
+        <input id="option4_11_2" type="radio" name="pvq_q11" <?php if (isset($pvq_q11) && $pvq_q11=="option_2") echo "checked";?> value="option_2">
+        <label for="option4_11_2">Not like me</label><br>
+
+        <input id="option4_11_3" type="radio" name="pvq_q11" <?php if (isset($pvq_q11) && $pvq_q11=="option_3") echo "checked";?> value="option_3">
+        <label for="option4_11_3">A little like me</label><br>
+
+        <input id="option4_11_4" type="radio" name="pvq_q11" <?php if (isset($pvq_q11) && $pvq_q11=="option_4") echo "checked";?> value="option_4">
+        <label for="option4_11_4">Moderately like me</label><br>
+
+        <input id="option4_11_5" type="radio" name="pvq_q11" <?php if (isset($pvq_q11) && $pvq_q11=="option_5") echo "checked";?> value="option_5">
+        <label for="option4_11_5">Like me</label><br>
+
+        <input id="option4_11_6" type="radio" name="pvq_q11" <?php if (isset($pvq_q11) && $pvq_q11=="option_6") echo "checked";?> value="option_6">
+        <label for="option4_11_6">Very much like me</label><br>
+        <br>
+      </div>
+
+
+      <b id="epvq_6">6. It is important to [him/her/them] to take care of those who are worse off.</b><span class="error">* <?php echo $pvq_q6_Err;?></span><br>
+      <div style="display: flex">
+        <input id="option4_6_1" type="radio" name="pvq_q6" <?php if (isset($pvq_q6) && $pvq_q6=="option_1") echo "checked";?> value="option_1">
+        <label for="option4_6_1">Not like me at all</label><br>
+
+        <input id="option4_6_2" type="radio" name="pvq_q6" <?php if (isset($pvq_q6) && $pvq_q6=="option_2") echo "checked";?> value="option_2">
+        <label for="option4_6_2">Not like me</label><br>
+
+        <input id="option4_6_3" type="radio" name="pvq_q6" <?php if (isset($pvq_q6) && $pvq_q6=="option_3") echo "checked";?> value="option_3">
+        <label for="option4_6_3">A little like me</label><br>
+
+        <input id="option4_6_4" type="radio" name="pvq_q6" <?php if (isset($pvq_q6) && $pvq_q6=="option_4") echo "checked";?> value="option_4">
+        <label for="option4_6_4">Moderately like me</label><br>
+
+        <input id="option4_6_5" type="radio" name="pvq_q6" <?php if (isset($pvq_q6) && $pvq_q6=="option_5") echo "checked";?> value="option_5">
+        <label for="option4_6_5">Like me</label><br>
+
+        <input id="option4_6_6" type="radio" name="pvq_q6" <?php if (isset($pvq_q6) && $pvq_q6=="option_6") echo "checked";?> value="option_6">
+        <label for="option4_6_6">Very much like me</label><br>
+        <br>
+      </div>
+
+
+      <b id="epvq_10">10. It is important to [him/her/them] to have fun.</b><span class="error">* <?php echo $pvq_q10_Err;?></span><br>
+      <div style="display: flex">
+        <input id="option4_10_1" type="radio" name="pvq_q10" <?php if (isset($pvq_q10) && $pvq_q10=="option_1") echo "checked";?> value="option_1">
+        <label for="option4_10_1">Not like me at all</label><br>
+
+        <input id="option4_10_2" type="radio" name="pvq_q10" <?php if (isset($pvq_q10) && $pvq_q10=="option_2") echo "checked";?> value="option_2">
+        <label for="option4_10_2">Not like me</label><br>
+
+        <input id="option4_10_3" type="radio" name="pvq_q10" <?php if (isset($pvq_q10) && $pvq_q10=="option_3") echo "checked";?> value="option_3">
+        <label for="option4_10_3">A little like me</label><br>
+
+        <input id="option4_10_4" type="radio" name="pvq_q10" <?php if (isset($pvq_q10) && $pvq_q10=="option_4") echo "checked";?> value="option_4">
+        <label for="option4_10_4">Moderately like me</label><br>
+
+        <input id="option4_10_5" type="radio" name="pvq_q10" <?php if (isset($pvq_q10) && $pvq_q10=="option_5") echo "checked";?> value="option_5">
+        <label for="option4_10_5">Like me</label><br>
+
+        <input id="option4_10_6" type="radio" name="pvq_q10" <?php if (isset($pvq_q10) && $pvq_q10=="option_6") echo "checked";?> value="option_6">
+        <label for="option4_10_6">Very much like me</label><br>
+        <br>
+      </div>
+
+
+      <b id="epvq_4">4. It is important to [him/her/them] to be in unity with nature.</b><span class="error">* <?php echo $pvq_q4_Err;?></span><br>
+      <div style="display: flex">
+        <input id="option4_4_1" type="radio" name="pvq_q4" <?php if (isset($pvq_q4) && $pvq_q4=="option_1") echo "checked";?> value="option_1">
+        <label for="option4_4_1">Not like me at all</label><br>
+
+        <input id="option4_4_2" type="radio" name="pvq_q4" <?php if (isset($pvq_q4) && $pvq_q4=="option_2") echo "checked";?> value="option_2">
+        <label for="option4_4_2">Not like me</label><br>
+
+        <input id="option4_4_3" type="radio" name="pvq_q4" <?php if (isset($pvq_q4) && $pvq_q4=="option_3") echo "checked";?> value="option_3">
+        <label for="option4_4_3">A little like me</label><br>
+
+        <input id="option4_4_4" type="radio" name="pvq_q4" <?php if (isset($pvq_q4) && $pvq_q4=="option_4") echo "checked";?> value="option_4">
+        <label for="option4_4_4">Moderately like me</label><br>
+
+        <input id="option4_4_5" type="radio" name="pvq_q4" <?php if (isset($pvq_q4) && $pvq_q4=="option_5") echo "checked";?> value="option_5">
+        <label for="option4_4_5">Like me</label><br>
+
+        <input id="option4_4_6" type="radio" name="pvq_q4" <?php if (isset($pvq_q4) && $pvq_q4=="option_6") echo "checked";?> value="option_6">
+        <label for="option4_4_6">Very much like me</label><br>
+        <br>
+      </div>
+
+
+      <b id="epvq_2">2. It is important to [him/her/them] to protect the environment.</b><span class="error">* <?php echo $pvq_q2_Err;?></span><br>
+      <div style="display: flex">
+        <input id="option4_2_1" type="radio" name="pvq_q2" <?php if (isset($pvq_q2) && $pvq_q2=="option_1") echo "checked";?> value="option_1">
+        <label for="option4_2_1">Not like me at all</label><br>
+
+        <input id="option4_2_2" type="radio" name="pvq_q2" <?php if (isset($pvq_q2) && $pvq_q2=="option_2") echo "checked";?> value="option_2">
+        <label for="option4_2_2">Not like me</label><br>
+
+        <input id="option4_2_3" type="radio" name="pvq_q2" <?php if (isset($pvq_q2) && $pvq_q2=="option_3") echo "checked";?> value="option_3">
+        <label for="option4_2_3">A little like me</label><br>
+
+        <input id="option4_2_4" type="radio" name="pvq_q2" <?php if (isset($pvq_q2) && $pvq_q2=="option_4") echo "checked";?> value="option_4">
+        <label for="option4_2_4">Moderately like me</label><br>
+
+        <input id="option4_2_5" type="radio" name="pvq_q2" <?php if (isset($pvq_q2) && $pvq_q2=="option_5") echo "checked";?> value="option_5">
+        <label for="option4_2_5">Like me</label><br>
+
+        <input id="option4_2_6" type="radio" name="pvq_q2" <?php if (isset($pvq_q2) && $pvq_q2=="option_6") echo "checked";?> value="option_6">
+        <label for="option4_2_6">Very much like me</label><br>
+        <br>
+      </div>
+
+
+      <b id="epvq_3">3. It is important to [him/her/them] to respect nature.</b><span class="error">* <?php echo $pvq_q3_Err;?></span><br>
+      <div style="display: flex">
+        <input id="option4_3_1" type="radio" name="pvq_q3" <?php if (isset($pvq_q3) && $pvq_q3=="option_1") echo "checked";?> value="option_1">
+        <label for="option4_3_1">Not like me at all</label><br>
+
+        <input id="option4_3_2" type="radio" name="pvq_q3" <?php if (isset($pvq_q3) && $pvq_q3=="option_2") echo "checked";?> value="option_2">
+        <label for="option4_3_2">Not like me</label><br>
+
+        <input id="option4_3_3" type="radio" name="pvq_q3" <?php if (isset($pvq_q3) && $pvq_q3=="option_3") echo "checked";?> value="option_3">
+        <label for="option4_3_3">A little like me</label><br>
+
+        <input id="option4_3_4" type="radio" name="pvq_q3" <?php if (isset($pvq_q3) && $pvq_q3=="option_4") echo "checked";?> value="option_4">
+        <label for="option4_3_4">Moderately like me</label><br>
+
+        <input id="option4_3_5" type="radio" name="pvq_q3" <?php if (isset($pvq_q3) && $pvq_q3=="option_5") echo "checked";?> value="option_5">
+        <label for="option4_3_5">Like me</label><br>
+
+        <input id="option4_3_6" type="radio" name="pvq_q3" <?php if (isset($pvq_q3) && $pvq_q3=="option_6") echo "checked";?> value="option_6">
+        <label for="option4_3_6">Very much like me</label><br>
+        <br>
+      </div>
+
+
+      <b id="epvq_8">8. It is important to [him/her/them] that there is no war or conflict.</b><span class="error">* <?php echo $pvq_q8_Err;?></span><br>
+      <div style="display: flex">
+        <input id="option4_8_1" type="radio" name="pvq_q8" <?php if (isset($pvq_q8) && $pvq_q8=="option_1") echo "checked";?> value="option_1">
+        <label for="option4_8_1">Not like me at all</label><br>
+
+        <input id="option4_8_2" type="radio" name="pvq_q8" <?php if (isset($pvq_q8) && $pvq_q8=="option_2") echo "checked";?> value="option_2">
+        <label for="option4_8_2">Not like me</label><br>
+
+        <input id="option4_8_3" type="radio" name="pvq_q8" <?php if (isset($pvq_q8) && $pvq_q8=="option_3") echo "checked";?> value="option_3">
+        <label for="option4_8_3">A little like me</label><br>
+
+        <input id="option4_8_4" type="radio" name="pvq_q8" <?php if (isset($pvq_q8) && $pvq_q8=="option_4") echo "checked";?> value="option_4">
+        <label for="option4_8_4">Moderately like me</label><br>
+
+        <input id="option4_8_5" type="radio" name="pvq_q8" <?php if (isset($pvq_q8) && $pvq_q8=="option_5") echo "checked";?> value="option_5">
+        <label for="option4_8_5">Like me</label><br>
+
+        <input id="option4_8_6" type="radio" name="pvq_q8" <?php if (isset($pvq_q8) && $pvq_q8=="option_6") echo "checked";?> value="option_6">
+        <label for="option4_8_6">Very much like me</label><br>
+        <br>
+      </div>
+
+
+      <b id="epvq_13">13. It is important to [him/her/them] to have control over others' actions.</b><span class="error">* <?php echo $pvq_q13_Err;?></span><br>
+      <div style="display: flex">
+        <input id="option4_13_1" type="radio" name="pvq_q13" <?php if (isset($pvq_q13) && $pvq_q13=="option_1") echo "checked";?> value="option_1">
+        <label for="option4_13_1">Not like me at all</label><br>
+
+        <input id="option4_13_2" type="radio" name="pvq_q13" <?php if (isset($pvq_q13) && $pvq_q13=="option_2") echo "checked";?> value="option_2">
+        <label for="option4_13_2">Not like me</label><br>
+
+        <input id="option4_13_3" type="radio" name="pvq_q13" <?php if (isset($pvq_q13) && $pvq_q13=="option_3") echo "checked";?> value="option_3">
+        <label for="option4_13_3">A little like me</label><br>
+
+        <input id="option4_13_4" type="radio" name="pvq_q13" <?php if (isset($pvq_q13) && $pvq_q13=="option_4") echo "checked";?> value="option_4">
+        <label for="option4_13_4">Moderately like me</label><br>
+
+        <input id="option4_13_5" type="radio" name="pvq_q13" <?php if (isset($pvq_q13) && $pvq_q13=="option_5") echo "checked";?> value="option_5">
+        <label for="option4_13_5">Like me</label><br>
+
+        <input id="option4_13_6" type="radio" name="pvq_q13" <?php if (isset($pvq_q13) && $pvq_q13=="option_6") echo "checked";?> value="option_6">
+        <label for="option4_13_6">Very much like me</label><br>
+        <br>
+      </div>
+
+
+      <b id="epvq_7">7. It is important to [him/her/them] that every person is treated justly.</b><span class="error">* <?php echo $pvq_q7_Err;?></span><br>
+      <div style="display: flex">
+        <input id="option4_7_1" type="radio" name="pvq_q7" <?php if (isset($pvq_q7) && $pvq_q7=="option_1") echo "checked";?> value="option_1">
+        <label for="option4_7_1">Not like me at all</label><br>
+
+        <input id="option4_7_2" type="radio" name="pvq_q7" <?php if (isset($pvq_q7) && $pvq_q7=="option_2") echo "checked";?> value="option_2">
+        <label for="option4_7_2">Not like me</label><br>
+
+        <input id="option4_7_3" type="radio" name="pvq_q7" <?php if (isset($pvq_q7) && $pvq_q7=="option_3") echo "checked";?> value="option_3">
+        <label for="option4_7_3">A little like me</label><br>
+
+        <input id="option4_7_4" type="radio" name="pvq_q7" <?php if (isset($pvq_q7) && $pvq_q7=="option_4") echo "checked";?> value="option_4">
+        <label for="option4_7_4">Moderately like me</label><br>
+
+        <input id="option4_7_5" type="radio" name="pvq_q7" <?php if (isset($pvq_q7) && $pvq_q7=="option_5") echo "checked";?> value="option_5">
+        <label for="option4_7_5">Like me</label><br>
+
+        <input id="option4_7_6" type="radio" name="pvq_q7" <?php if (isset($pvq_q7) && $pvq_q7=="option_6") echo "checked";?> value="option_6">
+        <label for="option4_7_6">Very much like me</label><br>
+        <br>
+      </div>
+
+
+      <b id="epvq_14">14. It is important to [him/her/them] to have authority over others.</b><span class="error">* <?php echo $pvq_q14_Err;?></span><br>
+      <div style="display: flex">
+        <input id="option4_14_1" type="radio" name="pvq_q14" <?php if (isset($pvq_q14) && $pvq_q14=="option_1") echo "checked";?> value="option_1">
+        <label for="option4_14_1">Not like me at all</label><br>
+
+        <input id="option4_14_2" type="radio" name="pvq_q14" <?php if (isset($pvq_q14) && $pvq_q14=="option_2") echo "checked";?> value="option_2">
+        <label for="option4_14_2">Not like me</label><br>
+
+        <input id="option4_14_3" type="radio" name="pvq_q14" <?php if (isset($pvq_q14) && $pvq_q14=="option_3") echo "checked";?> value="option_3">
+        <label for="option4_14_3">A little like me</label><br>
+
+        <input id="option4_14_4" type="radio" name="pvq_q14" <?php if (isset($pvq_q14) && $pvq_q14=="option_4") echo "checked";?> value="option_4">
+        <label for="option4_14_4">Moderately like me</label><br>
+
+        <input id="option4_14_5" type="radio" name="pvq_q14" <?php if (isset($pvq_q14) && $pvq_q14=="option_5") echo "checked";?> value="option_5">
+        <label for="option4_14_5">Like me</label><br>
+
+        <input id="option4_14_6" type="radio" name="pvq_q14" <?php if (isset($pvq_q14) && $pvq_q14=="option_6") echo "checked";?> value="option_6">
+        <label for="option4_14_6">Very much like me</label><br>
+        <br>
+      </div>
+
+
+      <b id="epvq_16">16. It is important to [him/her/them] to have money and possessions.</b><span class="error">* <?php echo $pvq_q16_Err;?></span><br>
+      <div style="display: flex">
+        <input id="option4_16_1" type="radio" name="pvq_q16" <?php if (isset($pvq_q16) && $pvq_q16=="option_1") echo "checked";?> value="option_1">
+        <label for="option4_16_1">Not like me at all</label><br>
+
+        <input id="option4_16_2" type="radio" name="pvq_q16" <?php if (isset($pvq_q16) && $pvq_q16=="option_2") echo "checked";?> value="option_2">
+        <label for="option4_16_2">Not like me</label><br>
+
+        <input id="option4_16_3" type="radio" name="pvq_q16" <?php if (isset($pvq_q16) && $pvq_q16=="option_3") echo "checked";?> value="option_3">
+        <label for="option4_16_3">A little like me</label><br>
+
+        <input id="option4_16_4" type="radio" name="pvq_q16" <?php if (isset($pvq_q16) && $pvq_q16=="option_4") echo "checked";?> value="option_4">
+        <label for="option4_16_4">Moderately like me</label><br>
+
+        <input id="option4_16_5" type="radio" name="pvq_q16" <?php if (isset($pvq_q16) && $pvq_q16=="option_5") echo "checked";?> value="option_5">
+        <label for="option4_16_5">Like me</label><br>
+
+        <input id="option4_16_6" type="radio" name="pvq_q16" <?php if (isset($pvq_q16) && $pvq_q16=="option_6") echo "checked";?> value="option_6">
+        <label for="option4_16_6">Very much like me</label><br>
+        <br>
+      </div>
+
+
+      <b id="epvq_12">12. It is important to [him/her/them] to do things [he/she/them] enjoys.</b><span class="error">* <?php echo $pvq_q12_Err;?></span><br>
+      <div style="display: flex">
+        <input id="option4_12_1" type="radio" name="pvq_q12" <?php if (isset($pvq_q12) && $pvq_q12=="option_1") echo "checked";?> value="option_1">
+        <label for="option4_12_1">Not like me at all</label><br>
+
+        <input id="option4_12_2" type="radio" name="pvq_q12" <?php if (isset($pvq_q12) && $pvq_q12=="option_2") echo "checked";?> value="option_2">
+        <label for="option4_12_2">Not like me</label><br>
+
+        <input id="option4_12_3" type="radio" name="pvq_q12" <?php if (isset($pvq_q12) && $pvq_q12=="option_3") echo "checked";?> value="option_3">
+        <label for="option4_12_3">A little like me</label><br>
+
+        <input id="option4_12_4" type="radio" name="pvq_q12" <?php if (isset($pvq_q12) && $pvq_q12=="option_4") echo "checked";?> value="option_4">
+        <label for="option4_12_4">Moderately like me</label><br>
+
+        <input id="option4_12_5" type="radio" name="pvq_q12" <?php if (isset($pvq_q12) && $pvq_q12=="option_5") echo "checked";?> value="option_5">
+        <label for="option4_12_5">Like me</label><br>
+
+        <input id="option4_12_6" type="radio" name="pvq_q12" <?php if (isset($pvq_q12) && $pvq_q12=="option_6") echo "checked";?> value="option_6">
+        <label for="option4_12_6">Very much like me</label><br>
+        <br>
+      </div>
+
+
+    </ul>
+
+    <input type="submit" name="submit" value="Submit">
+</form>
+
+</body>
+</html>

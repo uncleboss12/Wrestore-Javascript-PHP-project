@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!-- E: by using "$_SERVER['PHP_SELF']", the page is upload again when you click "Submit. -->
+<!--<form method="post" autocomplete="on" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">-->
+<form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
+    <ul style="list-style-type:none;">
+        1. How long have you grown these crops?:<span class="error">* <?php echo $exp_q1_Err;?></span><br>
+
+        <input id="option3_1_1" type="radio" name="exp_q1" <?php if (isset($exp_q1) && $exp_q1=="option_1") echo "checked";?> value="option_1">
+        <label for="option3_1_1">Yes, I already participate in one or more of these programs</label><br>
+
+        <input id="option3_1_2" type="radio" name="exp_q1" <?php if (isset($exp_q1) && $exp_q1=="option_2") echo "checked";?> value="option_2">
+        <label for="option3_1_2">Yes, I am interested in participating, but currently do not</label><br>
+
+        <input id="option3_1_3" type="radio" name="exp_q1" <?php if (isset($exp_q1) && $exp_q1=="option_3") echo "checked";?> value="option_3">
+        <label for="option3_1_3">I have participated in these programs in the past, but currently do not</label><br>
+
+        <input id="option3_1_4" type="radio" name="exp_q1" <?php if (isset($exp_q1) && $exp_q1=="option_4") echo "checked";?> value="option_4">
+        <label for="option3_1_4">No, I am not interested in participating</label><br>
+
+        <input id="option3_1_5" type="radio" name="exp_q1" <?php if (isset($exp_q1) && $exp_q1=="option_5") echo "checked";?> value="option_5">
+        <label for="option3_1_5">I don’t know enough about these program to answer</label><br>
+
+        <input id="option3_1_6" type="radio" name="exp_q1" <?php if (isset($exp_q1) && $exp_q1=="option_6") echo "checked";?> value="option_6">
+        <label for="option3_1_6">Not Applicable</label><br>
+        <br>
+<!--        <li>-->
+            <!--            <label class='gfield_label'  >-->
+        2. In which program are you interested?:<span class="error">* <?php echo $exp_q2b_Err;?></span><br>
+        <input id="option3_2_1" type="checkbox" name="exp_q2b[0]" <?php if (isset($_POST['exp_q2b'][0])) echo 'checked="checked"';?> value="option_0">
+        <label for="option3_2_1">Payment/economics</label><br>
+
+        <input id="option3_2_2" type="checkbox" name="exp_q2b[1]" <?php if (isset($_POST['exp_q2b'][1])) echo 'checked="checked"';?> value="option_1">
+        <label for="option3_2_2">Soil erosion control</label><br>
+
+        <input id="option3_2_3" type="checkbox" name="exp_q2b[2]" <?php if (isset($_POST['exp_q2b'][2])) echo 'checked="checked"';?> value="option_2">
+        <label for="option3_2_3">Soil health improvements</label><br>
+
+        <input id="option3_2_4" type="checkbox" name="exp_q2b[3]" <?php if (isset($_POST['exp_q2b'][3])) echo 'checked="checked"';?> value="option_3">
+        <label for="option3_2_4">Decreased fertilizer and pesticide</label><br>
+
+        <input id="option3_2_5" type="checkbox" name="exp_q2b[4]" <?php if (isset($_POST['exp_q2b'][4])) echo 'checked="checked"';?> value="option_4">
+        <label for="option3_2_5">Livestock benefits</label><br>
+
+        <input id="option3_2_6" type="checkbox" name="exp_q2b[5]" <?php if (isset($_POST['exp_q2b'][5])) echo 'checked="checked"';?> value="option_5">
+        <label for="option3_2_6">Wildlife benefits</label><br>
+
+        <input id="option3_2_7" type="checkbox" name="exp_q2b[6]" <?php if (isset($_POST['exp_q2b'][6])) echo 'checked="checked"';?> value="option_6">
+        <label for="option3_2_7">Seeing practices in place on neighboring farms</label><br>
+
+        <input id="option3_2_8" type="checkbox" name="exp_q2b[7]" <?php if (isset($_POST['exp_q2b'][7])) echo 'checked="checked"';?> value="option_7">
+        <label for="option3_2_8">Aesthetics</label><br>
+
+        <input id="option3_2_9" type="checkbox" name="exp_q2b[8]" <?php if (isset($_POST['exp_q2b'][8])) echo 'checked="checked"';?> value="option_8">
+        <label for="option3_2_9">Not applicable</label><br>
+        <!--        </li>-->
+        <br>
+
+        3. In which program are you interested?:<span class="error">* <?php echo $exp_q3b_Err;?></span><br>
+        <input id="option3_3_1" type="checkbox" name="exp_q3b[0]" <?php if (isset($_POST['exp_q3b'][0])) echo 'checked="checked"';?> value="option_0">
+        <label for="option3_3_1">Wetland area</label><br>
+
+        <input id="option3_3_2" type="checkbox" name="exp_q3b[1]" <?php if (isset($_POST['exp_q3b'][1])) echo 'checked="checked"';?> value="option_1">
+        <label for="option3_3_2">Grass waterways</label><br>
+
+        <input id="option3_3_3" type="checkbox" name="exp_q3b[2]" <?php if (isset($_POST['exp_q3b'][2])) echo 'checked="checked"';?> value="option_2">
+        <label for="option3_3_3">Strip cropping</label><br>
+
+        <input id="option3_3_4" type="checkbox" name="exp_q3b[3]" <?php if (isset($_POST['exp_q3b'][3])) echo 'checked="checked"';?> value="option_3">
+        <label for="option3_3_4">crop rotation</label><br>
+
+        <input id="option3_3_5" type="checkbox" name="exp_q3b[4]" <?php if (isset($_POST['exp_q3b'][4])) echo 'checked="checked"';?> value="option_4">
+        <label for="option3_3_5">Cover crop</label><br>
+
+        <input id="option3_3_6" type="checkbox" name="exp_q3b[5]" <?php if (isset($_POST['exp_q3b'][5])) echo 'checked="checked"';?> value="option_5">
+        <label for="option3_3_6">Filter strips</label><br>
+
+        <input id="option3_3_7" type="checkbox" name="exp_q3b[6]" <?php if (isset($_POST['exp_q3b'][6])) echo 'checked="checked"';?> value="option_6">
+        <label for="option3_3_7">Conservation tillage</label><br>
+
+        <input id="option3_3_8" type="checkbox" name="exp_q3b[7]" <?php if (isset($_POST['exp_q3b'][7])) echo 'checked="checked"';?> value="option_7">
+        <label for="option3_3_8">Habitat plantings</label><br>
+
+        <input id="option3_3_9" type="checkbox" name="exp_q3b[8]" <?php if (isset($_POST['exp_q3b'][8])) echo 'checked="checked"';?> value="option_8">
+        <label for="option3_3_9">Nutrient management</label><br>
+
+        <input id="option3_3_10" type="checkbox" name="exp_q3b[9]" <?php if (isset($_POST['exp_q3b'][9])) echo 'checked="checked"';?> value="option_9">
+        <label for="option3_3_10">Other</label><br>
+
+        <input id="option3_3_11" type="checkbox" name="exp_q3b[10]" <?php if (isset($_POST['exp_q3b'][10])) echo 'checked="checked"';?> value="option_10">
+        <label for="option3_3_11"> Not applicable</label><br>
+        <br>
+
+        4. Which field condition are you interested to improve?:<span class="error">* <?php echo $exp_q4b_Err;?></span>
+        <br>
+        <input id="option3_4_1" type="checkbox" name="exp_q4b[0]" <?php if (isset($_POST['exp_q4b'][0])) echo 'checked="checked"';?> value="option_0">
+        <label for="option3_4_1">Increase crop yield</label><br>
+
+        <input id="option3_4_2" type="checkbox" name="exp_q4b[1]" <?php if (isset($_POST['exp_q4b'][1])) echo 'checked="checked"';?> value="option_1">
+        <label for="option3_4_2"> Decrease fertilizer loss</label><br>
+
+        <input id="option3_4_3" type="checkbox" name="exp_q4b[2]" <?php if (isset($_POST['exp_q4b'][2])) echo 'checked="checked"';?> value="option_2">
+        <label for="option3_4_3">Reduce pestizes use</label><br>
+
+        <input id="option3_4_4" type="checkbox" name="exp_q4b[3]" <?php if (isset($_POST['exp_q4b'][3])) echo 'checked="checked"';?> value="option_3">
+        <label for="option3_4_4">Decrease field soil erosion</label><br>
+
+        <input id="option3_4_5" type="checkbox" name="exp_q4b[4]" <?php if (isset($_POST['exp_q4b'][4])) echo 'checked="checked"';?> value="option_4">
+        <label for="option3_4_5">Decrease stream bank erosion</label><br>
+
+        <input id="option3_4_6" type="checkbox" name="exp_q4b[5]" <?php if (isset($_POST['exp_q4b'][5])) echo 'checked="checked"';?> value="option_5">
+        <label for="option3_4_6">Improve soil moisture</label><br>
+
+        <input id="option3_4_7" type="checkbox" name="exp_q4b[6]" <?php if (isset($_POST['exp_q4b'][6])) echo 'checked="checked"';?> value="option_6">
+        <label for="option3_4_7">Improve soil health/organic matter/nutrients</label><br>
+
+        <input id="option3_4_8" type="checkbox" name="exp_q4b[7]" <?php if (isset($_POST['exp_q4b'][7])) echo 'checked="checked"';?> value="option_7">
+        <label for="option3_4_8"> Decrease flooding</label><br>
+
+        <input id="option3_4_9" type="checkbox" name="exp_q4b[8]" <?php if (isset($_POST['exp_q4b'][8])) echo 'checked="checked"';?> value="option_8">
+        <label for="option3_4_9"> Other</label><br>
+
+        <input id="option3_4_10" type="checkbox" name="exp_q4b[9]" <?php if (isset($_POST['exp_q4b'][9])) echo 'checked="checked"';?> value="option_9">
+        <label for="option3_4_10"> Not applicable</label><br>
+
+        <br>
+
+        5. How satisfied are you with your decision to take out land out of production to implement the conservation practice?:
+        <span class="error">* <?php echo $exp_q5_Err;?></span><br>
+        <input id="option3_5_1" type="radio" name="exp_q5" <?php if (isset($exp_q5) && $exp_q5=="option_1") echo "checked";?> value="option_1">
+        <label for="option3_5_1"> Very satisfied</label><br>
+
+        <input id="option3_5_2" type="radio" name="exp_q5" <?php if (isset($exp_q5) && $exp_q5=="option_2") echo "checked";?> value="option_2">
+        <label for="option3_5_2"> Somewhat satisfied</label><br>
+
+        <input id="option3_5_3" type="radio" name="exp_q5" <?php if (isset($exp_q5) && $exp_q5=="option_3") echo "checked";?> value="option_3">
+        <label for="option3_5_3"> Not satisfied</label><br>
+
+        <input id="option3_5_4" type="radio" name="exp_q5" <?php if (isset($exp_q5) && $exp_q5=="option_4") echo "checked";?> value="option_4">
+        <label for="option3_5_4"> Not applicable</label><br>
+
+        <br>
+
+        6. How effective has/have the practice/practices been on your land for minimizing flood impacts?:
+        <span class="error">* <?php echo $exp_q6_Err;?></span><br>
+
+        <input id="option3_6_1" type="radio" name="exp_q6" <?php if (isset($exp_q6) && $exp_q6=="option_1") echo "checked";?> value="option_1">
+        <label for="option3_6_1">Significant</label><br>
+
+        <input id="option3_6_2" type="radio" name="exp_q6" <?php if (isset($exp_q6) && $exp_q6=="option_2") echo "checked";?> value="option_2">
+        <label for="option3_6_2">Trivial</label><br>
+
+        <input id="option3_6_3" type="radio" name="exp_q6" <?php if (isset($exp_q6) && $exp_q6=="option_3") echo "checked";?> value="option_3">
+        <label for="option3_6_3"> None</label><br>
+
+        <input id="option3_6_4" type="radio" name="exp_q6" <?php if (isset($exp_q6) && $exp_q6=="option_4") echo "checked";?> value="option_4">
+        <label for="option3_6_4"> Not applicable</label><br>
+
+        <br>
+
+        7. How effective has the practice been on your land for minimizing fertilizer losses or inputs?:
+        <span class="error">* <?php echo $exp_q7_Err;?></span><br>
+
+        <input id="option3_7_1" type="radio" name="exp_q7" <?php if (isset($exp_q7) && $exp_q7=="option_1") echo "checked";?> value="option_1">
+        <label for="option3_7_1"> Significant</label><br>
+
+        <input id="option3_7_2" type="radio" name="exp_q7" <?php if (isset($exp_q7) && $exp_q7=="option_2") echo "checked";?> value="option_2">
+        <label for="option3_7_2"> Trivial</label><br>
+
+        <input id="option3_7_3" type="radio" name="exp_q7" <?php if (isset($exp_q7) && $exp_q7=="option_3") echo "checked";?> value="option_3">
+        <label for="option3_7_3">None</label><br>
+
+        <input id="option3_7_4" type="radio" name="exp_q7" <?php if (isset($exp_q7) && $exp_q7=="option_4") echo "checked";?> value="option_4">
+        <label for="option3_7_4"> Not applicable</label><br>
+
+        <br>
+
+        8. How effective has the practice been on your land for minimizing soil erosion?:
+        <span class="error">* <?php echo $exp_q8_Err;?></span><br>
+
+        <input id="option3_8_1" type="radio" name="exp_q8" <?php if (isset($exp_q8) && $exp_q8=="option_1") echo "checked";?> value="option_1">
+        <label for="option3_8_1">Significant</label><br>
+
+        <input id="option3_8_2" type="radio" name="exp_q8" <?php if (isset($exp_q8) && $exp_q8=="option_2") echo "checked";?> value="option_2">
+        <label for="option3_8_2">Trivial</label><br>
+
+        <input id="option3_8_3" type="radio" name="exp_q8" <?php if (isset($exp_q8) && $exp_q8=="option_3") echo "checked";?> value="option_3">
+        <label for="option3_8_3">None</label><br>
+
+        <input id="option3_8_4" type="radio" name="exp_q8" <?php if (isset($exp_q8) && $exp_q8=="option_4") echo "checked";?> value="option_4">
+        <label for="option3_8_4"> Not applicable</label><br>
+
+        <br>
+
+        9. How effective has the practice been on your land for improving soil health?:
+        <span class="error">* <?php echo $exp_q9_Err;?></span><br>
+
+        <input id="option3_9_1" type="radio" name="exp_q9" <?php if (isset($exp_q9) && $exp_q9=="option_1") echo "checked";?> value="option_1">
+        <label for="option3_9_1">Significant</label><br>
+
+        <input id="option3_9_2" type="radio" name="exp_q9" <?php if (isset($exp_q9) && $exp_q9=="option_2") echo "checked";?> value="option_2">
+        <label for="option3_9_2">Trivial</label><br>
+
+        <input id="option3_9_3" type="radio" name="exp_q9" <?php if (isset($exp_q9) && $exp_q9=="option_3") echo "checked";?> value="option_3">
+        <label for="option3_9_3">None</label><br>
+
+        <input id="option3_9_4" type="radio" name="exp_q9" <?php if (isset($exp_q9) && $exp_q9=="option_4") echo "checked";?> value="option_4">
+        <label for="option3_9_4"> Not applicable</label><br>
+
+        <br>
+
+        10. How much economic benefit did you receive from program incentives?:
+        <span class="error">* <?php echo $exp_q10_Err;?></span><br>
+
+        <input id="option3_10_1" type="radio" name="exp_q10" <?php if (isset($exp_q10) && $exp_q10=="option_1") echo "checked";?> value="option_1">
+        <label for="option3_10_1">Significant</label><br>
+
+        <input id="option3_10_2" type="radio" name="exp_q10" <?php if (isset($exp_q10) && $exp_q10=="option_2") echo "checked";?> value="option_2">
+        <label for="option3_10_2">Trivial</label><br>
+
+        <input id="option3_10_3" type="radio" name="exp_q10" <?php if (isset($exp_q10) && $exp_q10=="option_3") echo "checked";?> value="option_3">
+        <label for="option3_10_3">None</label><br>
+
+        <input id="option3_10_4" type="radio" name="exp_q10" <?php if (isset($exp_q10) && $exp_q10=="option_4") echo "checked";?> value="option_4">
+        <label for="option3_10_4"> Not applicable</label><br>
+
+        <br>
+
+        11. How much economic benefit did you receive from increased productivity?:
+        <span class="error">* <?php echo $exp_q11_Err;?></span><br>
+
+        <input id="option3_11_1" type="radio" name="exp_q11" <?php if (isset($exp_q11) && $exp_q11=="option_1") echo "checked";?> value="option_1">
+        <label for="option3_11_1">Significant</label><br>
+
+        <input id="option3_11_2" type="radio" name="exp_q11" <?php if (isset($exp_q11) && $exp_q11=="option_2") echo "checked";?> value="option_2">
+        <label for="option3_11_2">Trivial</label><br>
+
+        <input id="option3_11_3" type="radio" name="exp_q11" <?php if (isset($exp_q11) && $exp_q11=="option_3") echo "checked";?> value="option_3">
+        <label for="option3_11_3"> None</label><br>
+
+        <input id="option3_11_4" type="radio" name="exp_q11" <?php if (isset($exp_q11) && $exp_q11=="option_4") echo "checked";?> value="option_4">
+        <label for="option3_11_4"> Not applicable</label><br>
+
+        <br>
+
+        12. How much economic benefit did you receive from increased rent?:
+        <span class="error">* <?php echo $exp_q12_Err;?></span><br>
+
+        <input id="option3_12_1" type="radio" name="exp_q12" <?php if (isset($exp_q12) && $exp_q12=="option_1") echo "checked";?> value="option_1">
+        <label for="option3_12_1">Significant</label><br>
+
+        <input id="option3_12_2" type="radio" name="exp_q12" <?php if (isset($exp_q12) && $exp_q12=="option_2") echo "checked";?> value="option_2">
+        <label for="option3_12_2">Trivial</label><br>
+
+        <input id="option3_12_3" type="radio" name="exp_q12" <?php if (isset($exp_q12) && $exp_q12=="option_3") echo "checked";?> value="option_3">
+        <label for="option3_12_3">None</label><br>
+
+        <input id="option3_12_4" type="radio" name="exp_q12" <?php if (isset($exp_q12) && $exp_q12=="option_4") echo "checked";?> value="option_4">
+        <label for="option3_12_4"> Not applicable</label><br>
+
+        <br>
+
+        13. In your opinion, what motivates landowners to support and adopt conservation practices?:
+        <span class="error">* <?php echo $exp_q13b_Err;?></span><br>
+
+        <input id="option3_13_1" type="checkbox" name="exp_q13b[0]" <?php if (isset($_POST['exp_q13b'][0])) echo 'checked="checked"';?> value="option_0">
+        <label for="option3_13_1">Economic benefits from increased yields?</label><br>
+
+        <input id="option3_13_2" type="checkbox" name="exp_q13b[1]" <?php if (isset($_POST['exp_q13b'][1])) echo 'checked="checked"';?> value="option_1">
+        <label for="option3_13_2">Available economic incentives from government programs?</label><br>
+
+        <input id="option3_13_3" type="checkbox" name="exp_q13b[2]" <?php if (isset($_POST['exp_q13b'][2])) echo 'checked="checked"';?> value="option_2">
+        <label for="option3_13_3">Existing evidence of benefits of practices in other landowners’ fields?</label><br>
+
+        <input id="option3_13_4" type="checkbox" name="exp_q13b[3]" <?php if (isset($_POST['exp_q13b'][3])) echo 'checked="checked"';?> value="option_3">
+        <label for="option3_13_4">Short term (less than 5 years) benefits on the farm?</label><br>
+
+        <input id="option3_13_5" type="checkbox" name="exp_q13b[4]" <?php if (isset($_POST['exp_q13b'][4])) echo 'checked="checked"';?> value="option_4">
+        <label for="option3_13_5">Long-term (more than 5 years) sustainability of the farm?</label><br>
+
+        <input id="option3_13_6" type="checkbox" name="exp_q13b[5]" <?php if (isset($_POST['exp_q13b'][5])) echo 'checked="checked"';?> value="option_5">
+        <label for="option3_13_6">Community benefits via flood prevention and water quality improvement.</label><br>
+
+        <input id="option3_13_7" type="checkbox" name="exp_q13b[6]" <?php if (isset($_POST['exp_q13b'][6])) echo 'checked="checked"';?> value="option_6">
+        <label for="option3_13_7">Improved aesthetics</label><br>
+
+        <input id="option3_13_8" type="checkbox" name="exp_q13b[7]" <?php if (isset($_POST['exp_q13b'][7])) echo 'checked="checked"';?> value="option_7">
+        <label for="option3_13_8">Improved wild life habitat and recreational sites</label><br>
+
+        <input id="option3_13_9" type="checkbox" name="exp_q13b[8]" <?php if (isset($_POST['exp_q13b'][8])) echo 'checked="checked"';?> value="option_8">
+        <label for="option3_13_9"> Not applicable</label><br>
+
+        <input id="option3_13_10" type="checkbox" name="exp_q13b[9]" <?php if (isset($_POST['exp_q13b'][9])) echo 'checked="checked"';?> value="option_9">
+        <label for="option3_13_10"> Others</label><br>
+
+        <br>
+
+        14. During the last 5 years, have you increased or decreased your average fertilizer application?:
+        <span class="error">* <?php echo $exp_q14_Err;?></span><br>
+
+        <input id="option3_14_1" type="radio" name="exp_q14" <?php if (isset($exp_q14) && $exp_q14=="option_1") echo "checked";?> value="option_1">
+        <label for="option3_14_1">Increased</label><br>
+
+        <input id="option3_14_2" type="radio" name="exp_q14" <?php if (isset($exp_q14) && $exp_q14=="option_2") echo "checked";?> value="option_2">
+        <label for="option3_14_2">Decreased</label><br>
+
+        <input id="option3_14_3" type="radio" name="exp_q14" <?php if (isset($exp_q14) && $exp_q14=="option_3") echo "checked";?> value="option_3">
+        <label for="option3_14_3">No Variation</label><br>
+
+        <input id="option3_14_4" type="radio" name="exp_q14" <?php if (isset($exp_q14) && $exp_q14=="option_4") echo "checked";?> value="option_4">
+        <label for="option3_14_4">Not Applicable</label><br>
+
+        <br>
+
+
+        15. During the last 5 years, have you increased or decreased your average pesticide application?:
+        <span class="error">* <?php echo $exp_q15_Err;?></span><br>
+
+        <input id="option3_15_1" type="radio" name="exp_q15" <?php if (isset($exp_q15) && $exp_q15=="option_1") echo "checked";?> value="option_1">
+        <label for="option3_15_1">Increased</label><br>
+
+        <input id="option3_15_2" type="radio" name="exp_q15" <?php if (isset($exp_q15) && $exp_q15=="option_2") echo "checked";?> value="option_2">
+        <label for="option3_15_2">Decreased</label><br>
+
+        <input id="option3_15_3" type="radio" name="exp_q15" <?php if (isset($exp_q15) && $exp_q15=="option_3") echo "checked";?> value="option_3">
+        <label for="option3_15_3"> No Variation</label><br>
+
+        <input id="option3_15_4" type="radio" name="exp_q15" <?php if (isset($exp_q15) && $exp_q15=="option_4") echo "checked";?> value="option_4">
+        <label for="option3_15_4">Not Applicable</label><br>
+
+        <br>
+
+        16. During the last 5 years, has your average yield increased or decreased?:
+        <span class="error">* <?php echo $exp_q16_Err;?></span><br>
+
+        <input id="option3_16_1" type="radio" name="exp_q16" <?php if (isset($exp_q16) && $exp_q16=="option_1") echo "checked";?> value="option_1">
+        <label for="option3_16_1">Increased</label><br>
+
+        <input id="option3_16_2" type="radio" name="exp_q16" <?php if (isset($exp_q16) && $exp_q16=="option_2") echo "checked";?> value="option_2">
+        <label for="option3_16_2">Decreased</label><br>
+
+        <input id="option3_16_3" type="radio" name="exp_q16" <?php if (isset($exp_q16) && $exp_q16=="option_3") echo "checked";?> value="option_3">
+        <label for="option3_16_3">No Variation</label><br>
+
+        <input id="option3_16_4" type="radio" name="exp_q16" <?php if (isset($exp_q16) && $exp_q16=="option_4") echo "checked";?> value="option_4">
+        <label for="option3_16_4">Not Applicable</label><br>
+
+        <br>
+
+
+        <li id='info3_q17'>
+            17. In your best production year, what was your average corn yield in bushels/acre? Enter 0 if this crop is not applicable to you.
+            <span class='error'>*</span><br>
+            <input id="option3_17_1" type="text" name="exp_q17" title="Only one number is allowed" value="<?php echo $exp_q17;?>">
+            <script>document.getElementById('info3_q17').onclick = function(){document.getElementById('option3_17_1').focus();}</script>
+
+            <span class="error">* <?php echo $exp_q17_Err;?></span>
+        </li>
+        <br>
+
+        <li id='info3_q18'>
+            18. In your worst production year, what was your worst corn yield in bushels/acre? Enter 0 if this crop is not applicable to you.
+            <span class='error'>*</span><br>
+            <input id="option3_18_1" type="text" name="exp_q18" title="Only one number is allowed" value="<?php echo $exp_q18;?>">
+            <script>document.getElementById('info3_q18').onclick = function(){document.getElementById('option3_18_1').focus();}</script>
+
+            <span class="error">* <?php echo $exp_q18_Err;?></span>
+        </li>
+        <br>
+
+        <li id='info3_q19'>
+            19. In your best production year, what was your soybean yield in bushels/acre? Enter 0 if this crop is not applicable to you.
+            <span class='error'>*</span><br>
+            <input id="option3_19_1" type="text" name="exp_q19" title="Only one number is allowed" value="<?php echo $exp_q19;?>">
+            <script>document.getElementById('info3_q19').onclick = function(){document.getElementById('option3_19_1').focus();}</script>
+
+            <span class="error">* <?php echo $exp_q19_Err;?></span>
+        </li>
+        <br>
+
+        <li id='info3_q20'>
+            20. In your worst production year, what was your soybean yield in bushels/acre? Enter 0 if this crop is not applicable to you.
+            <span class='error'>*</span><br>
+            <input id="option3_20_1" type="text" name="exp_q20" title="Only one number is allowed" value="<?php echo $exp_q20;?>">
+            <script>document.getElementById('info3_q20').onclick = function(){document.getElementById('option3_20_1').focus();}</script>
+
+            <span class="error">* <?php echo $exp_q20_Err;?></span>
+        </li>
+        <br>
+
+
+        21. Is farming your main source of income?:
+        <span class="error">* <?php echo $exp_q21_Err;?></span><br>
+
+        <input id="option3_21_1" type="radio" name="exp_q21" <?php if (isset($exp_q21) && $exp_q21=="option_1") echo "checked";?> value="option_1">
+        <label for="option3_21_1">Yes</label><br>
+
+        <input id="option3_21_2" type="radio" name="exp_q21" <?php if (isset($exp_q21) && $exp_q21=="option_2") echo "checked";?> value="option_2">
+        <label for="option3_21_2">No</label><br>
+
+        <input id="option3_21_3" type="radio" name="exp_q21" <?php if (isset($exp_q21) && $exp_q21=="option_3") echo "checked";?> value="option_3">
+        <label for="option3_21_3">It is roughly half my/our income</label><br>
+
+    </ul>
+
+    <input type="submit" name="submit" value="Submit">
+</form>
+
+</body>
+</html>

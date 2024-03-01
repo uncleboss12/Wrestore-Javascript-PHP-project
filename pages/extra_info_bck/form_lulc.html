@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!-- E: by using "$_SERVER['PHP_SELF']", the page is upload again when you click "Submit. -->
+<!--<form method="post" autocomplete="on" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">-->
+<form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
+<!--    1. Do you own the land you farm?:-->
+<!--    <input type="radio" name="gender" <?php if (isset($gender) && $gender=="female") echo "checked";?> value="female">Female-->
+<!--    <input type="radio" name="gender" <?php if (isset($gender) && $gender=="male") echo "checked";?> value="male">Male-->
+<!--    <input type="radio" name="gender" <?php if (isset($gender) && $gender=="other") echo "checked";?> value="other">Other-->
+<!--    <span class="error">* <?php echo $genderErr;?></span>-->
+
+    <ul style="list-style-type:none;">
+<!--        <li>-->
+            <!--            <label class='gfield_label'  >-->
+        1. Do you own the land you farm?:
+        <span class="error">* <?php echo $land_q1_Err;?></span><br>
+
+        <input id="option2_1_1" type="radio" name="land_q1" <?php if (isset($land_q1) && $land_q1=="option_1") echo "checked";?> value="option_1">
+        <label for="option2_1_1">Yes, I (or along with my family)  own all the land I farm</label><br>
+
+        <input id="option2_1_2" type="radio" name="land_q1" <?php if (isset($land_q1) && $land_q1=="option_2") echo "checked";?> value="option_2">
+        <label for="option2_1_2">No, I am a cash-renter who rents the land from someone else for farming</label><br>
+
+        <input id="option2_1_3" type="radio" name="land_q1" <?php if (isset($land_q1) && $land_q1=="option_3") echo "checked";?> value="option_3">
+        <label for="option2_1_3">No, I am a share-renter who rents the land from someone else for farming</label><br>
+
+        <input id="option2_1_4" type="radio" name="land_q1" <?php if (isset($land_q1) && $land_q1=="option_4") echo "checked";?> value="option_4">
+        <label for="option2_1_4">Yes, I own some of the land and rent (cash-rent or share-rent) some of the land that I farm</label><br>
+
+        <input id="option2_1_5" type="radio" name="land_q1" <?php if (isset($land_q1) && $land_q1=="option_5") echo "checked";?> value="option_5">
+        <label for="option2_1_5">Not Applicable</label><br>
+        <br>
+<!--                <span class='gfield_required'>*</span></label><div class='ginput_container'><ul class='gfield_radio' id='input_1_3' style="list-style-type:none;"><li class='gchoice_1_3_0'><input name='input_3' type='radio' value='1'  id='choice_1_3_0' tabindex='9'    /><label for='choice_1_3_0' id='label_1_3_0'>Yes, I (or along with my family)  own all the land I farm</label></li><li class='gchoice_1_3_1'><input name='input_3' type='radio' value='2'  id='choice_1_3_1' tabindex='10'    /><label for='choice_1_3_1' id='label_1_3_1'>No, I am a cash-renter who rents the land from someone else for farming</label></li><li class='gchoice_1_3_2'><input name='input_3' type='radio' value='2'  id='choice_1_3_2' tabindex='11'    /><label for='choice_1_3_2' id='label_1_3_2'>No, I am a share-renter who rents the land from someone else for farming</label></li><li class='gchoice_1_3_3'><input name='input_3' type='radio' value='3'  id='choice_1_3_3' tabindex='12'    /><label for='choice_1_3_3' id='label_1_3_3'>Yes, I own some of the land and rent (cash-rent or share-rent) some of the land that I farm</label></li><li class='gchoice_1_3_4'><input name='input_3' type='radio' value='-1'  id='choice_1_3_4' tabindex='13'    /><label for='choice_1_3_4' id='label_1_3_4'>Not Applicable</label></li></ul></div>-->
+<!--        </li>-->
+        <li id='field_1_4' class='gfield gfield_contains_required field_sublabel_below field_description_above' >
+            <label class='gfield_label' for='option2_2_1'>
+                2. In which sub-basins do you own farm land that you also farm? <span class='gfield_required'>*</span>
+            </label>
+            <label for='option2_2_1' >
+                <div class='gfield_description'>Use the link to the map provided above to find your Subbasin ID. Insert the numerical values of IDs in ascending order in the field below, seperated by commas if needed. Insert 0 if there are no sub-basins or if you want to select the entire watershed.</div>
+            </label>
+            <div class='ginput_container'>
+                <input id="option2_2_1" type="text" name="land_q2" title="Only numbers between commas" value="<?php echo $land_q2;?>">
+                <span class="error">* <?php echo $land_q2_Err;?></span>
+            </div>
+        </li>
+        <br>
+
+        <li>
+            <label for='option2_3_1'>
+                3. In which sub-basins do you farm via a crop share agreement? <span>*</span>
+            </label>
+            <label for='option2_3_1'>
+                <div>Use the link to the map provided above to find your Subbasin ID. Insert the numerical values of IDs in ascending order in the field below, seperated by commas if needed. Insert 0 if there are no sub-basins or if you want to select the entire watershed.</div>
+            </label>
+            <div>
+                <input id="option2_3_1" type="text" name="land_q3" title="Only numbers between commas" value="<?php echo $land_q3;?>">
+                <span class="error">* <?php echo $land_q3_Err;?></span>
+            </div>
+        </li>
+        <br>
+
+        <li>
+            <label for='option2_4_1'>
+                4. In which sub-basins do you farm via a cash rent agreement? <span>*</span>
+            </label>
+            <label for='option2_4_1'>
+                <div>Use the link to the map provided above to find your Subbasin ID. Insert the numerical values of IDs in ascending order in the field below, seperated by commas if needed. Insert 0 if there are no sub-basins or if you want to select the entire watershed.</div>
+            </label>
+            <div>
+                <input id="option2_4_1" type="text" name="land_q4" title="Only numbers between commas" value="<?php echo $land_q4;?>">
+                <span class="error">* <?php echo $land_q4_Err;?></span>
+            </div>
+        </li>
+        <br>
+
+        5. What kinds of crops do you grow?:<span class="error">* <?php echo $land_q5_Err;?></span>
+        <br>
+        <input id="option2_5_1" type="radio" name="land_q5" <?php if (isset($land_q5) && $land_q5=="option_1") echo "checked";?> value="option_1">
+        <label for="option2_5_1">Corn</label><br>
+
+        <input id="option2_5_2" type="radio" name="land_q5" <?php if (isset($land_q5) && $land_q5=="option_2") echo "checked";?> value="option_2">
+        <label for="option2_5_2">Soybeans</label><br>
+
+        <input id="option2_5_3" type="radio" name="land_q5" <?php if (isset($land_q5) && $land_q5=="option_3") echo "checked";?> value="option_3">
+        <label for="option2_5_3">Corn/Soybean rotation</label><br>
+
+<!--        <input id="option4_q5" type="radio" name="land_q5" <?php if (isset($land_q5) && $land_q5=="option_4") echo "checked";?> value="option_4"> Not Applicable<br>-->
+        <input id="option2_5_4a" type="radio" name="land_q5" <?php if (isset($land_q5) && $land_q5=="option_4");?> value="option_4">
+        <label for="option2_5_4a">Not Applicable</label><br>
+
+        <input id="option2_5_4b" type="radio" name="land_q5" <?php if (isset($land_q5) && $land_q5=="option_5") echo "checked";?> value="option_5">
+        <label for="option2_5_4b">Other</label>
+        <!-- The below error message is not needed -->
+        <!-- <span class="error">val: <?php echo $land_q5_Err;?></span>-->
+
+        <!-- <input id="other_crop" type="text"  value=""/>-->
+        <input id="other_crop" type="text" name="land_q5b" value="<?php echo $land_q5b;?>"/>
+        <span class="error">*<?php echo $land_q5b_Err;?></span><br>
+        <script>
+            document.getElementById('option2_5_4b').onclick = function() {
+                document.getElementById('other_crop').focus();
+                document.getElementById("other_crop").required = true;
+
+                // var var1 = document.getElementById('other_crop').value;
+                // alert (var1);
+                // document.getElementById('other_q5').value = var1;
+            };
+            document.getElementById('option2_5_1').onclick = function() {
+                document.getElementById("other_crop").required = false;document.getElementById("other_crop").value = "";};
+            document.getElementById('option2_5_2').onclick = function() {document.getElementById("other_crop").required = false;document.getElementById("other_crop").value = "";};
+            document.getElementById('option2_5_3').onclick = function() {document.getElementById("other_crop").required = false;document.getElementById("other_crop").value = "";};
+            document.getElementById('option2_5_4a').onclick = function() {document.getElementById("other_crop").required = false;document.getElementById("other_crop").value = "";};
+        </script>
+        <br>
+
+        6. How long have you grown these crops?:<span class="error">* <?php echo $land_q6_Err;?></span>
+        <br>
+
+        <input id="option2_6_1" type="radio" name="land_q6" <?php if (isset($land_q6) && $land_q6=="option_1") echo "checked";?> value="option_1">
+        <label for="option2_6_1">1 - 5 years</label><br>
+
+        <input id="option2_6_2" type="radio" name="land_q6" <?php if (isset($land_q6) && $land_q6=="option_2") echo "checked";?> value="option_2">
+        <label for="option2_6_2">6 -10 years</label><br>
+
+        <input id="option2_6_3" type="radio" name="land_q6" <?php if (isset($land_q6) && $land_q6=="option_3") echo "checked";?> value="option_3">
+        <label for="option2_6_3">10-20 years</label><br>
+
+        <input id="option2_6_4" type="radio" name="land_q6" <?php if (isset($land_q6) && $land_q6=="option_4") echo "checked";?> value="option_4">
+        <label for="option2_6_4">More than 20 years</label><br>
+
+        <input id="option2_6_5" type="radio" name="land_q6" <?php if (isset($land_q6) && $land_q6=="option_5") echo "checked";?> value="option_5">
+        <label for="option2_6_5">No applicable</label><br>
+    </ul>
+
+    <input type="submit" name="submit" value="Submit">
+</form>
+
+</body>
+</html>
