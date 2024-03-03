@@ -152,6 +152,7 @@ echo "Hi: " . $_SESSION['user_name'];
                         //E: model_ecw3-->session eb-test; model_ecw4--> session neb-test
                         echo "<p style='margin-left: 100px;'> Session A: <a href='../../model_ecw4/g2c.php' class='button' title='model_ecw4 neb'> start</a></p>";
                         echo "<p style='margin-left: 100px;'> Session B: <a href='../../model_ecw3/g2c.php' class='button' title='model_ecw3 eb'> start</a></p>";
+                        // echo "<p style='margin-left: 100px;'> Session B: <a href='../../model_ecw5/g2c.php' class='button' title='model_ecw3 eb'> start</a></p>";
                     } else {  //E: even id (par)
                         // echo "Par!"."<br>\n"; //E: For testing
                         echo "<p style='margin-left: 100px;'> Session A: <a href='../../model_ecw3/g2c.php' class='button' title='model_ecw3 eb'> start</a></p>";

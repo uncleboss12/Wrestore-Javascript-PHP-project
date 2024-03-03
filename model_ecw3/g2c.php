@@ -3,7 +3,11 @@
 session_start();
 //echo "Hi: ".$_SESSION['user_name'];//E: For checking
 $pid_fresh = $_SESSION['user_name'];
+
+
 ?>
+
+
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <!--<html xmlns="http://www.w3.org/1999/xhtml" style="height: 100vh; overflow: hidden; width: 100%;">-->
@@ -118,11 +122,11 @@ $pid_fresh = $_SESSION['user_name'];
 //// EE: For Option 1, Turn-on 'read_database.php', but NOT 'read_db.php'.
 //// EE: For Option 3, Turn-on 'read_db.php', but NOT 'read_database.php'.
 
-//include ('read_database.php');//EE: Turn-Off when 'database_option' is 2 or 3.
-include ('read_db.php');//EE: TurnOff when 'database_option' is 1 or 2
+include ('read_database.php');//EE: Turn-Off when 'database_option' is 2 or 3.
+// include ('read_db.php');//EE: TurnOff when 'database_option' is 1 or 2
 
 ?>
-
+ 
 <!--[if lte IE 6]><script src="js/ie6/warning.js"></script><script>window.onload=function(){e("js/ie6/")}</script><![endif]-->
 
 <div class="container-fluid px-2">
@@ -1179,7 +1183,7 @@ stroke:red; stroke-width:1; fill-opacity:0; stroke-opacity:1"/>-->
 <script type="text/javascript">
     //=================== SELECT THE DATABASE ==================== //
     //    After selecting "database_option", set the corresponding files in L.95
-    var database_option = 3;//EE: MySQL(as-html) = 1; JSON = 2; MySQL(as-json) = 3
+    var database_option = 1;//EE: MySQL(as-html) = 1; JSON = 2; MySQL(as-json) = 3
     var debug_js = 0;//EE: for debugging set 1
 //    var testing = json_from_mysql;
 //    alert("testing:" + testing);

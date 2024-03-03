@@ -15,9 +15,9 @@ if ( $_SESSION['USERID']=="" ) {
     header('Location: login.php');
     }*/
 // You can always override the session by just declaring it like I can do below if I wanted to test with userid=2.
-$_SESSION['USERID']=111;
-//$USERID = $_SESSION['USERID'];
-$USERID = 111;
+// $_SESSION['USERID']=111;
+$USERID = $_SESSION['USERID'];
+// $USERID = 111;
 
 /*  Old connection
 // E: This code tries to connect to the server. Arguments are called from 'data.php' included above in L-103.

@@ -11,7 +11,7 @@ $pid_fresh = $_SESSION['user_name'];
 <head>
     <!--  Selection of options  -->
     <!--  PHP: Line 90  -->
-    <!--  JS: Line 1062  -->
+    <!--  JS: Line 1062  --> 
 
     <meta charset=utf-8>
     <meta http-equiv="X-UA-Compatible" content="IE=8" />

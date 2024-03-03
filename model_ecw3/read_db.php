@@ -4,7 +4,7 @@
  * Date: 2/7/2019; Time: 9:46 PM
  * This code read the data from MySQL. The data is converted in JSON format to send to javascript code (g2.php)
  */
-
+// simon comment this
 include ('data.php');//EE: Here, 'data.php' is not needed, because 'read_database.php' is also calling it
 
 //This is a simple script that checks to see the session userID is even active. If not, that means someone is trying
@@ -15,9 +15,9 @@ if ( $_SESSION['USERID']=="" ) {
     header('Location: login.php');
     }*/
 // You can always override the session by just declaring it like I can do below if I wanted to test with userid=2.
-$_SESSION['USERID']=111;
-//$USERID = $_SESSION['USERID'];
-$USERID = 111;
+// $_SESSION['USERID']=111;
+$USERID = $_SESSION['USERID'];
+// $USERID = 111;
 
 /*  Old connection
 // E: This code tries to connect to the server. Arguments are called from 'data.php' included above in L-103.
