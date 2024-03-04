@@ -40,13 +40,13 @@ body {
     height: 20px;
 }
 
-/*#chart_div1 {*/
-    /*float: left;*/
-    /*width: 235px;*/
-    /*height: 100%;*/
-    /*!*display:block;*!*/
-    /*border: 1px solid yellow;*/
-/*}*/
+#chart_div1 {
+    float: left;
+    width: 235px;
+    height: 100%;
+    display:block;
+    border: 1px solid yellow;
+}
 /*#chart_div2{*/
     /*float: left;*/
     /*width: 235px;*/
@@ -67,4 +67,4 @@ body {
     /*height: 550px;*/
     /*!*display:block;*!*/
     /*border: 1px solid yellow;*/
-/*}*/
+/*} */

@@ -56,7 +56,7 @@
       .container {
           width: 950px;
       }
-      #chart_div1 {
+      #chart_div1{
           float: left;
           width: 235px;
           height: 550px;

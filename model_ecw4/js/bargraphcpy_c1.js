@@ -82,7 +82,7 @@ function subBasinGraph1() {
 
             //need to edit the tooltip for min and max
             // -----------------  These four lines were developed by Efrain Noa-Yarasca
-            data.addRow([rowlen+1,m11,min11,max11,'bar {fill-color:'+colors[rowlen]+';fill-opacity:'+1+'; stroke-color:'+border[rowlen]+';stroke-width:'+2+'},'+
+            data.addRow([rowlen+1,m11,min11,max11,'bar {fill-color:'+colors[rowlen]+';fill-opacity:'+1+'; stroke-color:'+border[rowlen]+';stroke-width:'+8+'},'+
             'line {stroke-color:'+'#000066'+'; stroke-width:'+1+'}'
                 ,createCustomHTMLContent1(rowlen+1,'PFR',m11.toExponential(2),min11.toExponential(2),max11.toExponential(2))]);
             data1.addRow([rowlen+1,m12,min12,max12,'bar {fill-color:'+colors[rowlen]+';fill-opacity:'+1+'; stroke-color:'+border[rowlen]+';stroke-width:'+2+'},'+
