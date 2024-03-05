@@ -58,15 +58,12 @@ $pid_fresh = $_SESSION['user_name'];
     <script type='text/javascript' src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
     <script type='text/javascript' src="bootstrap/js/bootstrap.min.js"></script>
 
-    <!--[if IE]><![endif]-->
-    <!--    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>-->
-    <!--    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>-->
+
+<!-- <script src="g2c.js"></script> -->
 
     <!-- This script makes toggling and tracking the legend in the main-map and 4 heat-maps -->
     <script type="text/javascript" src="js/legend_plug.js"></script>
-    <!-- This script build the DOM-legend in the main-map -->
-    <script type="text/javascript" src="js/legend_dom.js"></script>
-
+ 
     <script type="text/javascript" src="js/json2.js"></script>
     <!--    <script type="text/javascript" src="js/jquery.collapsible.js"></script>-->
     <script type="text/javascript" src="js/bargraphcpy_g2c.js"></script>
@@ -85,16 +82,17 @@ $pid_fresh = $_SESSION['user_name'];
     <!--  Google chart lybrary load  -->
   
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>  <!--Chart JS -->
     <!-- New Custom chart -->
+  
      <script type="text/javascript">
  
         let analysis_data = [];
+        console.log('SWAGGER1234', analysis_data);
       fetch('stream-for-all-pages.json')
         .then(response => response.json()) // Parse JSON response we get from JSOn file
         .then(data => {
             if(data?.analysis?.data[1] !== undefined){
-                let  manage_data =  analysis_data = data?.analysis?.data[1];
+                  analysis_data = data?.analysis?.data[1];
                 let meta_data = analysis_data.map((data)=> {
                     return [data.label.toString(),data.F1[0],  data.F1[1], data.F2[0], 
                      data.F1[2],'stroke-color: #e11b0d; stroke-width: 2;']
@@ -142,6 +140,7 @@ $pid_fresh = $_SESSION['user_name'];
 
     <!--  EE: Tracking module   Old Chart -->
    <script type='text/javascript'>
+ 
         // The automaton is: s_start --one--> s_one --two--> s_two --three--> s_end
         // In the transition between s_two and s_end, when three is clicked, we invoke the submitData()
         // method, to store all collected data up to the moment.
@@ -767,7 +766,7 @@ in US Dollars" style="margin: 0px 0px 0px
                                         </div>
 
                                        <script>
-                                        let analysis_line_data = [];
+                                        console.log('SWAGGER900', analysis_data);
                                         fetch('stream-for-all-pages.json')
                                                 .then(response => response.json()) // Parse JSON response
                                                 .then(data => {
@@ -2778,7 +2777,6 @@ stroke:red; stroke-width:1; fill-opacity:0; stroke-opacity:1"/>-->
             return array;
         }
     </script>
-
 
 </body>
 
