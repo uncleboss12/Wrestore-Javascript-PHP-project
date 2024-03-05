@@ -83,33 +83,28 @@ $pid_fresh = $_SESSION['user_name'];
     <!--    <script src="data/takefeedback2b.js"></script>-->
 
     <!--  Google chart lybrary load  -->
-    <script type="text/javascript">
-
-    </script>
+  
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>  <!--Chart JS -->
     <!-- New Custom chart -->
      <script type="text/javascript">
-     
  
         let analysis_data = [];
       fetch('stream-for-all-pages.json')
         .then(response => response.json()) // Parse JSON response we get from JSOn file
         .then(data => {
-            // Process the JSON data
-            // console.log('SOS_SIMON ',data); 
-            console.log('SOS_SIMON_0 ',data?.analysis?.data[1]); 
             if(data?.analysis?.data[1] !== undefined){
                 let  manage_data =  analysis_data = data?.analysis?.data[1];
                 let meta_data = analysis_data.map((data)=> {
-                    return [data.label.toString(),data.F1[0], data.F2[0], data.F1[1], 
+                    return [data.label.toString(),data.F1[0],  data.F1[1], data.F2[0], 
                      data.F1[2],'stroke-color: #e11b0d; stroke-width: 2;']
                 });
-                console.log('SOS_SIMON_4', meta_data);
                 
             // new Chart
        
       google.charts.load('current', {'packages':['bar']});
       google.charts.setOnLoadCallback(drawChart);
+      google.charts.setOnLoadCallback(drawLineChart);
       
       function drawChart() {
  var data = new google.visualization.DataTable();
@@ -120,15 +115,7 @@ $pid_fresh = $_SESSION['user_name'];
  data.addColumn('number', 'Expenses');
  // Add a style column for the stroke
  data.addColumn({type:'string', role:'style'});
-//  data.addRows([
-//     ['April',1000,  900, 10,   400, 'stroke-color: #e11b0d; stroke-width: 2;'],
-//     ['May',  1170, 1000, 100,   460, 'stroke-color: #e11b0d; stroke-width: 2;'],
-//     ['June',  660,  550,  300,  1120, 'stroke-color: #e11b0d; stroke-width: 2;'],
-//     ['July', 1030,    ,    40 ,    540, 'stroke-color: #e11b0d; stroke-width: 2;']
-//  ]);
- data.addRows([
-    ...meta_data
- ]);
+ data.addRows([...meta_data]);
 
  var options = {
     chart: {
@@ -143,30 +130,15 @@ $pid_fresh = $_SESSION['user_name'];
 
  var chart = new google.charts.Bar(document.getElementById('dual_x_div_chart'));
  chart.draw(data, google.charts.Bar.convertOptions(options));
-}
-            
-            // new Chart end
-            }
+};
 
-            
-        })
-        .catch(error => console.error('Error fetching JSON:', error));
-    
-    
-     
+    }
+        }).catch(error => console.error('Error fetching JSON:', error));
     </script>
-    <!-- Custom chart end -->
+ <!-- Custom line chart end -->
 
     
-    <script type="text/javascript">
-        // //window.onload(heatinitialize);
-        // google.load("visualization", "1", {packages:["corechart"]});
-        // google.setOnLoadCallback(subBasinGraph1);
 
-        // google.charts.load('current', {packages: ['corechart']});//E: New Library Loader Code. last version
-        // google.charts.load('45', { packages: ['corechart'] });//E: New Library Loader Code. version 45
-        // google.charts.setOnLoadCallback(subBasinGraph1);
-    </script>
 
     <!--  EE: Tracking module   Old Chart -->
    <script type='text/javascript'>
@@ -781,47 +753,71 @@ in US Dollars" style="margin: 0px 0px 0px
                                     <!--    ------------ (2b)  tabs-PFR Barplot ------------   -->
                                     <div id="PFR_barplot"
                                         style="height: 100%; overflow: auto;">
-                                        <!-- <div id="chart_div1"></div>
-                                        <div style="position: absolute; width: 50px; top: 428px;/*top: 385px;*/ left:35px; padding: 0px 10px;
-                            background-color: #fde3ce; border:1px solid #f77e22; border-radius: 3px; font-size:
-                            11px; color: #7d110c;">
-                                            PFR in Cubic meters per second (cms)
-                                        </div> -->
-                                        <!-- New Barchat -->
                                         <div id="dual_x_div_chart" style=""></div>
-
-                                                                
-                                        <!-- <div style="position: absolute; transform: rotate(270deg); top: 200px; left:-42px;">
-                                            Suggested Plans - SP
-                                        </div> -->
+                                       
                                     </div>
-                                    <!--    ------------ (3b)  tabs-Cost Barplot ------------   -->
-                                    <div id="CR_barplot" style="height: 100%; overflow-x: hidden; overflow-y: overlay;">
-                                        <div id="chart_div2"></div>
-                                        <div style="position: absolute; width: 220px; top: 385px; left:35px; padding: 0px 10px;
-                            background-color: #fde3ce; border:1px solid #f77e22; border-radius: 3px; font-size:
-                            11px; color: #7d110c;">
-                                            Profit in US Dollars
-                                        </div>
-                                        <div
-                                            style="position: absolute; transform: rotate(270deg); top: 200px; left:-42px;">
-                                            Suggested Plans - SP
-                                        </div>
-                                    </div>
+                                  
                                     <!--    ------------ (4b)  tabs-Sed. Red. Barplot  ------------   -->
-                                    <div id="SR_barplot" style="height: 100%; overflow-x: hidden; overflow-y: overlay;">
-                                        <div id="chart_div3"></div>
-                                        <div style="position: absolute; width: 240px; top: 385px; left:35px; padding: 0px 10px;
-                            background-color: #fde3ce; border:1px solid #f77e22; border-radius: 3px; font-size:
-                            11px; color: #7d110c;">
-                                            Sediment Reduction in tons
-                                        </div>
-                                        <div
-                                            style="position: absolute; transform: rotate(270deg); top: 200px; left:-42px;">
-                                            Suggested plans
+                                    <div id="SR_barplot" style="height: 100%; overflow: auto;">
+
+                                    <!-- Old -->
+                                        <div>
+                                        <div id="curve_chart" style="width: 900px; height: 500px"></div>
+   
                                         </div>
 
+                                       <script>
+                                        let analysis_line_data = [];
+                                        fetch('stream-for-all-pages.json')
+                                                .then(response => response.json()) // Parse JSON response
+                                                .then(data => {
+                                                    if(data?.analysis?.data[1] !== undefined){
+                                                let  manage_data =  analysis_data = data?.analysis?.data[1];
+                                                let meta_data = analysis_data.map((data)=> {
+                                                    return [data.label.toString(),data.F1[0], data.F2[0], data.F1[2], data.F1[1]]
+                                                });
+                                                console.log('SWAGGER',data); // For e data here
+
+                                                              // Process the JSON data
+                                        google.charts.load('current', {'packages':['corechart']});
+                                         google.charts.setOnLoadCallback(drawChart);
+                                        console.log('SWAGGER2 ', meta_data);
+                                         function drawChart() {
+                                            var data = google.visualization.arrayToDataTable([
+                                            ['Year', 'F1', 'F2','Max', 'Min'],
+                                            ...meta_data
+                                            ]);
+
+                                            var options = {
+                                                title: 'Company Performance',
+                                                curveType: 'function',
+                                                legend: { position: 'none' },
+                                                lineWidth: 10,
+                                                pointSize: 12,
+                                                width:2500,
+                                                height: 500,
+                                            
+                                                chartArea: {
+                                                    left: 0, // Remove left margin
+                                                    width: '100%', // Use full width
+                                                    height: '80%' // Adjust height as needed
+                                                }
+                                                };
+
+                                            var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+                                            chart.draw(data, options);
+                                        }
+                                            }
+                                      
+                                                })
+                                                .catch(error => console.error('Error fetching JSON:', error));
+
+
+                                        // Old end
+                                        </script>
                                     </div>
+
                                     <!--    ------------ (5b)  tabs-Nit. Red Barplot  ------------   -->
                                     <div id="NR_barplot" style="height: 100%; overflow-x: hidden; overflow-y: overlay;">
                                         <div id="chart_div4"></div>
