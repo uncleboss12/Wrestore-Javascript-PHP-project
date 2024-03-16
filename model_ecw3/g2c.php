@@ -13,6 +13,7 @@ $pid_fresh = $_SESSION['user_name'];
 <!--<html xmlns="http://www.w3.org/1999/xhtml" style="height: 100vh; overflow: hidden; width: 100%;">-->
 <html xmlns="http://www.w3.org/1999/xhtml" style="height: 100vh">
 
+
 <head>
     <!--  Selection of options  -->
     <!--  PHP: Line 90  -->
@@ -82,59 +83,7 @@ $pid_fresh = $_SESSION['user_name'];
     <!--  Google chart lybrary load  -->
   
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <!-- New Custom chart -->
-  
-     <script type="text/javascript">
  
-        let analysis_data = [];
-        console.log('SWAGGER1234', analysis_data);
-      fetch('stream-for-all-pages.json')
-        .then(response => response.json()) // Parse JSON response we get from JSOn file
-        .then(data => {
-            if(data?.analysis?.data[1] !== undefined){
-                  analysis_data = data?.analysis?.data[1];
-                let meta_data = analysis_data.map((data)=> {
-                    return [data.label.toString(),data.F1[0],  data.F1[1], data.F2[0], 
-                     data.F1[2],'stroke-color: #e11b0d; stroke-width: 2;']
-                });
-                
-            // new Chart
-       
-      google.charts.load('current', {'packages':['bar']});
-      google.charts.setOnLoadCallback(drawChart);
-      google.charts.setOnLoadCallback(drawLineChart);
-      
-      function drawChart() {
- var data = new google.visualization.DataTable();
- data.addColumn('string', 'Month');
- data.addColumn('number', 'Sales');
- data.addColumn({ id: 'min', type:'number', role:'interval'}); // Lower bound 
- data.addColumn({ id: 'max', type:'number', role:'interval'}); // Upper bound 
- data.addColumn('number', 'Expenses');
- // Add a style column for the stroke
- data.addColumn({type:'string', role:'style'});
- data.addRows([...meta_data]);
-
- var options = {
-    chart: {
-      title: 'Company Performance',
-      subtitle: 'visualization',
-    },
-    bars: 'horizontal',
-    colors: ['#fbf01e', '#c2c2ba'],
-     width: 900, // width of the chart
-    height: 2500 // height of the chart
- };
-
- var chart = new google.charts.Bar(document.getElementById('dual_x_div_chart'));
- chart.draw(data, google.charts.Bar.convertOptions(options));
-};
-
-    }
-        }).catch(error => console.error('Error fetching JSON:', error));
-    </script>
- <!-- Custom line chart end -->
-
     
 
 
@@ -282,8 +231,8 @@ $pid_fresh = $_SESSION['user_name'];
                             <p name="suggestionsNumberHeader" style="display: inline-block; padding: 0px 5px; font-size:17px;
                      margin: 0px;">
                                 Total number of <font color="#7d110c"><b>suggested plans</b></font> (i.e., conservation
-                                plans) recommended in this session: 20 | <font color="#7d110c"><strong>Page
-                                        <span class="currentPage">1</span> of <span
+                                plans) recommended in this session: <span id="totalPages2" >0</span> | <font color="#7d110c"><strong>Page
+                                        <span id="currentPage" class="currentPage">1</span> of <span id="totalPages"
                                             class="totalPages">20</span></strong></font>
                             </p>
                         </section>
@@ -761,60 +710,11 @@ in US Dollars" style="margin: 0px 0px 0px
 
                                     <!-- Old -->
                                         <div>
-                                        <div id="curve_chart" style="width: 900px; height: 500px"></div>
+                                        <div id="curve_chart" ></div>
    
                                         </div>
 
-                                       <script>
-                                        console.log('SWAGGER900', analysis_data);
-                                        fetch('stream-for-all-pages.json')
-                                                .then(response => response.json()) // Parse JSON response
-                                                .then(data => {
-                                                    if(data?.analysis?.data[1] !== undefined){
-                                                let  manage_data =  analysis_data = data?.analysis?.data[1];
-                                                let meta_data = analysis_data.map((data)=> {
-                                                    return [data.label.toString(),data.F1[0], data.F2[0], data.F1[2], data.F1[1]]
-                                                });
-                                                console.log('SWAGGER',data); // For e data here
-
-                                                              // Process the JSON data
-                                        google.charts.load('current', {'packages':['corechart']});
-                                         google.charts.setOnLoadCallback(drawChart);
-                                        console.log('SWAGGER2 ', meta_data);
-                                         function drawChart() {
-                                            var data = google.visualization.arrayToDataTable([
-                                            ['Year', 'F1', 'F2','Max', 'Min'],
-                                            ...meta_data
-                                            ]);
-
-                                            var options = {
-                                                title: 'Company Performance',
-                                                curveType: 'function',
-                                                legend: { position: 'none' },
-                                                lineWidth: 10,
-                                                pointSize: 12,
-                                                width:2500,
-                                                height: 500,
-                                            
-                                                chartArea: {
-                                                    left: 0, // Remove left margin
-                                                    width: '100%', // Use full width
-                                                    height: '80%' // Adjust height as needed
-                                                }
-                                                };
-
-                                            var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
-
-                                            chart.draw(data, options);
-                                        }
-                                            }
-                                      
-                                                })
-                                                .catch(error => console.error('Error fetching JSON:', error));
-
-
-                                        // Old end
-                                        </script>
+                                   
                                     </div>
 
                                     <!--    ------------ (5b)  tabs-Nit. Red Barplot  ------------   -->
@@ -862,13 +762,13 @@ in US Dollars" style="margin: 0px 0px 0px
 
                 <!-- GoTo Back Suggestion  -->
                 <div class="debug" style="width: 13%">
-                    <div class="rating_backnext debug">
-                        <div class="l6_box" style="/*border: 1px solid; border-radius: 5px*/">
-                            <input id="Back" class="barBlue moveBack" type="button" name="Back"
-                                title="Click here to back to the previous suggestion plan"
-                                value="&lt;&lt; Previous Suggestion" />
-                        </div>
+                <div  style="/*border: 1px solid; border-radius: 5px*/">
+                        <button id="previous_suggestion"  class="barBlue moveNext" type="button" name="Next"
+                            title="Click here to move to the next suggestion plan" style="position:
+                relative; float: right;" value="">&lt;&lt; Prev Suggestion</button>
                     </div>
+
+                  
                 </div>
 
                 <!--  Rating  -->
@@ -992,10 +892,10 @@ in US Dollars" style="margin: 0px 0px 0px
 
                 <!--  GoTo Next Suggestion  -->
                 <div class="debug" style="width: 13%">
-                    <div style="/*border: 1px solid; border-radius: 5px*/">
-                        <input id="Next" class="barBlue moveNext" type="button" name="Next"
+                    <div  style="/*border: 1px solid; border-radius: 5px*/">
+                        <button id="Next_suggestion" class="barBlue moveNext" type="button" name="Next"
                             title="Click here to move to the next suggestion plan" style="position:
-                relative; float: right;" value="Next Suggestion &gt;&gt;" />
+                relative; float: right;" value=""> Next Suggestion &gt;&gt;</button>
                     </div>
                 </div>
 
@@ -1374,8 +1274,6 @@ stroke:red; stroke-width:1; fill-opacity:0; stroke-opacity:1"/>-->
             // format. Check "read_db.php" for more detail
             var nsga2_values_as_json = json_from_mysql;
             //E: console.log ("L.889 data coming from PHP: \n"+ aux1);
-            console.log("L.1185 test 1: \n" + Object.keys(nsga2_values_as_json[0]).length);//E: get number of JSON objects
-            //        console.log ("L.1186 test 1: \n"+ JSON.stringify(nsga2_values_as_json[0]));
             if (debug_js == 1) alert("L.1187 Database_option: " + database_option + "  data from MySQL as JSON");
         }
         else {//E: If database_option == 1, or acidentally another value is given
@@ -1405,7 +1303,6 @@ stroke:red; stroke-width:1; fill-opacity:0; stroke-opacity:1"/>-->
             $('#wholeTable th').each(function (index, item) {
                 headers[index] = $(item).html();
             });
-            console.log("L.1216 headers: \n" + JSON.stringify(headers));//EE: Show the headers of 'wholeTable'
             //EE: .............................. End:(1) Headers using MySQL  .........................
         }
         else {//E: This is for "database_option == 2" and "database_option == 3"
@@ -2708,6 +2605,8 @@ stroke:red; stroke-width:1; fill-opacity:0; stroke-opacity:1"/>-->
 
 
 
+
+  
     <!--  #########################################################################################  -->
     <!--  ######## This js script detects the inactive time of the user - connection with Voladizo (7) ######### -->
     <script>
@@ -2778,6 +2677,150 @@ stroke:red; stroke-width:1; fill-opacity:0; stroke-opacity:1"/>-->
         }
     </script>
 
+
+    
+            <script type="text/javascript">
+                 let importedData = null;
+
+                    // Fetch JSON data and store it in the importedData variable
+                      
+
+                            function getObjectLength(obj) {
+                                var count = 0;
+                                for (var prop in obj) {
+                                    if (obj.hasOwnProperty(prop)) {
+                                        count++;
+                                    }
+                                }
+                                return count;
+                            }
+
+                            let analysis_data = [];
+                            let allImportedData = {};
+                            meta_data_List = [];
+                            let counter =  1;
+                            fetch('stream-for-all-pages.json',{cache: 'no-cache' })
+                            .then(response => response.json()) // Parse JSON response we get from JSOn file
+                            .then(data => {
+                                importedData = data?.analysis?.data;
+                                var length = getObjectLength(importedData);
+                                document.getElementById('totalPages').textContent = length;
+                                document.getElementById('totalPages2').textContent = length;
+
+                            }).catch(error => console.error('Error fetching JSON:', error));
+
+
+                            google.charts.load('current', {'packages':['bar']});
+                            google.charts.setOnLoadCallback(drawChart);
+                            google.charts.setOnLoadCallback(drawLineChart);
+
+                            function drawChart() {
+                                analysis_data = importedData[counter];
+                                
+                                let meta_data = analysis_data.map((data)=> {
+                                    return [data.label.toString(),data.F1[0],  data.F1[1], data.F2[0], 
+                                    data.F1[2],'stroke-color: #e11b0d; stroke-width: 2;']
+                                });
+                          
+                            var data = new google.visualization.DataTable();
+                            data.addColumn('string', 'Month');
+                            data.addColumn('number', 'Sales');
+                            data.addColumn({ id: 'min', type:'number', role:'interval'}); // Lower bound 
+                            data.addColumn({ id: 'max', type:'number', role:'interval'}); // Upper bound 
+                            data.addColumn('number', 'Expenses');
+                            // Add a style column for the stroke
+                            data.addColumn({type:'string', role:'style'});
+                            data.addRows([...meta_data]);
+
+                            var options = {
+                            chart: {
+                            title: 'Company Performance',
+                            subtitle: 'visualization',
+                            },
+                            bars: 'horizontal',
+                            colors: ['#fbf01e', '#c2c2ba'],
+                            width: 900, // width of the chart
+                            height: 2500 // height of the chart
+                            };
+
+                            var chart = new google.charts.Bar(document.getElementById('dual_x_div_chart'));
+                            chart.draw(data, google.charts.Bar.convertOptions(options));
+                            };
+
+                            // Function to increment counters
+                       
+                            var currentPage = document.getElementById("currentPage");
+                            currentPage.textContent = 1;
+                            
+                            function incrementCounters() {
+                                if(importedData[counter + 1] !== undefined){
+                                    currentPage.textContent = parseInt(currentPage.textContent) + 1;
+                                    counter += 1;
+                                     drawChart();
+                                     drawLineChart();
+                                }
+                            }
+                            
+                            function decrementCounters() {
+                                if(importedData[counter - 1] !== undefined){
+                                    currentPage.textContent = parseInt(currentPage.textContent) - 1;
+                                    counter -= 1;
+                                     drawChart();
+                                     drawLineChart();
+                                }
+                            }
+
+                            document.getElementById("Next_suggestion").addEventListener("click", incrementCounters);
+                            document.getElementById("previous_suggestion").addEventListener("click", decrementCounters);
+
+
+                            // Line Chart
+                            google.charts.load('current', {'packages':['corechart']});
+                                         google.charts.setOnLoadCallback(drawLineChart);
+                        
+                            function drawLineChart() {
+                                var length = getObjectLength(importedData);
+                                document.getElementById('totalPages').textContent = length;
+                                document.getElementById('totalPages2').textContent = length;
+                                analysis_data = importedData[counter];
+                                                let meta_data = analysis_data.map((data)=> {
+                                                    return [data.label.toString(),data.F1[0], data.F2[0], data.F1[2], data.F1[1]]
+                                                });
+
+                                                              // Process the JSON data
+                                     
+                                            var data = google.visualization.arrayToDataTable([
+                                            ['Year', 'F1', 'F2','Max', 'Min'],
+                                            ...meta_data
+                                            ]);
+
+                                            var options = {
+                                                title: 'Company Performance',
+                                                curveType: 'function',
+                                                legend: { position: 'none' },
+                                                lineWidth: 3,
+                                                pointSize: 8,
+                                                width:1500,
+                                                height: 500,
+                                            
+                                                chartArea: {
+                                                    left: 0, // Remove left margin
+                                                    width: '100%', // Use full width
+                                                    height: '80%' // Adjust height as needed
+                                                }
+                                                };
+
+                                            var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+                                            chart.draw(data, options);
+                                        }
+                            // Line Chart End
+                            </script>
+
+  
+
+
 </body>
+
 
 </html>
